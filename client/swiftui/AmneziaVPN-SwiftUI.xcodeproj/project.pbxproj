@@ -642,6 +642,7 @@ make build version-header ARCHS=\"${ARCHS}\" PLATFORM_NAME=\"${PLATFORM_NAME}\" 
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../../Frameworks";
+				LIBRARY_SEARCH_PATHS = "$(inherited) $(SRCROOT)/../3rd/amneziawg-apple/Sources/WireGuardKitGo/out";
 				PRODUCT_BUNDLE_IDENTIFIER = org.amnezia.AmneziaVPN.network-extension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -658,6 +659,7 @@ make build version-header ARCHS=\"${ARCHS}\" PLATFORM_NAME=\"${PLATFORM_NAME}\" 
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../../Frameworks";
+				LIBRARY_SEARCH_PATHS = "$(inherited) $(SRCROOT)/../3rd/amneziawg-apple/Sources/WireGuardKitGo/out";
 				PRODUCT_BUNDLE_IDENTIFIER = org.amnezia.AmneziaVPN.network-extension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
