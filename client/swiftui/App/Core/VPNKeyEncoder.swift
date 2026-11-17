@@ -18,7 +18,7 @@ enum VPNKeyEncoder {
         var output = Data()
         let chunkSize = 64 * 1024
         var chunk = [UInt8](repeating: 0, count: chunkSize)
-        var stream = compression_stream()
+        var stream = compression_stream(dst_ptr: nil, dst_size: 0, src_ptr: nil, src_size: 0, state: nil)
         var status = compression_stream_init(&stream, COMPRESSION_STREAM_ENCODE, COMPRESSION_ZLIB)
         guard status != COMPRESSION_STATUS_ERROR else {
             throw VPNKeyDecodingError.invalidDecompression
@@ -30,15 +30,20 @@ enum VPNKeyEncoder {
             }
             stream.src_ptr = base.assumingMemoryBound(to: UInt8.self)
             stream.src_size = data.count
-            repeat {
-                stream.dst_ptr = &chunk
-                stream.dst_size = chunkSize
-                status = compression_stream_process(&stream, COMPRESSION_STREAM_FINALIZE)
-                let produced = chunkSize - stream.dst_size
-                if produced > 0 {
-                    output.append(chunk, count: produced)
+            try chunk.withUnsafeMutableBufferPointer { chunkBuffer in
+                guard let dstBase = chunkBuffer.baseAddress else {
+                    throw VPNKeyDecodingError.invalidDecompression
                 }
-            } while status == COMPRESSION_STATUS_OK
+                repeat {
+                    stream.dst_ptr = dstBase
+                    stream.dst_size = chunkSize
+                    status = compression_stream_process(&stream, COMPRESSION_STREAM_FINALIZE)
+                    let produced = chunkSize - stream.dst_size
+                    if produced > 0 {
+                        output.append(dstBase, count: produced)
+                    }
+                } while status == COMPRESSION_STATUS_OK
+            }
         }
         guard status == COMPRESSION_STATUS_END else {
             throw VPNKeyDecodingError.invalidDecompression

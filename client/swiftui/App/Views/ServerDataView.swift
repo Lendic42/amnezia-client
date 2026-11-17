@@ -35,7 +35,7 @@ struct ServerDataView: View {
                     }
                     Divider().background(AmneziaTheme.borderSoft).padding(.leading, 16)
                 }
-                AmneziaListItem(title: "Remove server from application", isDestructive: true, showChevron: true) {
+                AmneziaListItem(title: "Remove server from application", showChevron: true, isDestructive: true) {
                     if isConnected {
                         appState.showSnackbar("Cannot remove server during active connection")
                     } else {
@@ -44,7 +44,7 @@ struct ServerDataView: View {
                 }
                 Divider().background(AmneziaTheme.borderSoft).padding(.leading, 16)
                 if server.hasWriteAccess {
-                    AmneziaListItem(title: "Clear server from Amnezia software", isDestructive: true, showChevron: true) {
+                    AmneziaListItem(title: "Clear server from Amnezia software", showChevron: true, isDestructive: true) {
                         if isConnected {
                             appState.showSnackbar("Cannot clear server from Amnezia software during active connection")
                         } else {
@@ -54,7 +54,7 @@ struct ServerDataView: View {
                     Divider().background(AmneziaTheme.borderSoft).padding(.leading, 16)
                 }
                 if server.isFromApi {
-                    AmneziaListItem(title: "Reset API config", isDestructive: true, showChevron: true) {
+                    AmneziaListItem(title: "Reset API config", showChevron: true, isDestructive: true) {
                         if isConnected {
                             appState.showSnackbar("Cannot reset API config during active connection")
                         } else {

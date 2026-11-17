@@ -54,8 +54,8 @@ struct ApplicationView: View {
                         }
                         Divider().background(AmneziaTheme.borderSoft).padding(.leading, 16)
                         AmneziaListItem(title: "Reset settings and remove all data from the application",
-                                        isDestructive: true,
-                                        showChevron: true) {
+                                        showChevron: true,
+                                        isDestructive: true) {
                             if isConnected {
                                 appState.showSnackbar("Cannot reset settings during active connection")
                             } else {

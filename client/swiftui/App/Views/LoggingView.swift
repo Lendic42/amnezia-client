@@ -66,7 +66,7 @@ struct LoggingView: View {
                             }
                         }
                         Divider().background(AmneziaTheme.borderSoft).padding(.leading, 16)
-                        AmneziaListItem(title: "Clear all logs", isDestructive: true, showChevron: true) {
+                        AmneziaListItem(title: "Clear all logs", showChevron: true, isDestructive: true) {
                             showClearConfirm = true
                         }
                         Divider().background(AmneziaTheme.borderSoft).padding(.leading, 16)
