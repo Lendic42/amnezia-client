@@ -1,0 +1,777 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+		9395CB5450253A9DA54CB214 = {
+			isa = PBXBuildFile;
+			fileRef = EA6A36CE51A627F639213309;
+		};
+		AC6762738097AB61114E3553 = {
+			isa = PBXBuildFile;
+			fileRef = CC4AAAAA13F1C0F1285CD1E0;
+		};
+		347598213F7E8DEE8E8231F8 = {
+			isa = PBXBuildFile;
+			fileRef = FE47F75A75B4709F3C0ACB15;
+		};
+		6944EAB4689D6A60530F044F = {
+			isa = PBXBuildFile;
+			fileRef = DF1410A6F6BAB4839A7C061F;
+		};
+		505B2782A3D40ABBFDBFCB36 = {
+			isa = PBXBuildFile;
+			fileRef = E758A90127FBAB599927821A;
+		};
+		7E6AAE9D68FE0924031E7FE2 = {
+			isa = PBXBuildFile;
+			fileRef = 26844A28EF04043D4F7E3497;
+		};
+		0D5E21B2556919F5A7EC1864 = {
+			isa = PBXBuildFile;
+			fileRef = E7A35E57E90AE7FD786D3FA0;
+		};
+		D353B74DF0E83881CE51F760 = {
+			isa = PBXBuildFile;
+			fileRef = 2E01A21506C7B2A3BA621295;
+		};
+		59B0799C11D6AA8B7FDCD0AF = {
+			isa = PBXBuildFile;
+			fileRef = 94EC9805EFE2F1910A1B59F0;
+		};
+		DFC19ADBE26EEA5BFCCAC4B3 = {
+			isa = PBXBuildFile;
+			fileRef = 2315389092445467E67065BD;
+		};
+		16CFA4D2E3B2BDFEC32EA33D = {
+			isa = PBXBuildFile;
+			fileRef = CC682D2745160615C6ECF2D9;
+		};
+		B312A9E490B3B91D419433AD = {
+			isa = PBXBuildFile;
+			fileRef = 5EF26DDDE1241217DCE253CD;
+		};
+		A867BCAAC911ABB4DA1F9CBC = {
+			isa = PBXBuildFile;
+			fileRef = 0C581881EB917D134992074B;
+		};
+		B37B4979DA586DFCDDFD474B = {
+			isa = PBXBuildFile;
+			fileRef = 5895FCB68169CD7BDE50EF6D;
+		};
+		28588264CEBA02B6874ABDAC = {
+			isa = PBXBuildFile;
+			fileRef = 32278CCDFEB02B51BDF8A4CB;
+		};
+		C38FA25183D6519CA4966396 = {
+			isa = PBXBuildFile;
+			fileRef = F574FF41B00325DB0BF4D5BB;
+		};
+		E5242A60236CC99DE0C75E0B = {
+			isa = PBXBuildFile;
+			fileRef = 47EBDAFFD245161F5AB9B30E;
+		};
+		0DD8FBF37456C900BD740FB2 = {
+			isa = PBXBuildFile;
+			fileRef = 45A70A1B183304ACBEE65B07;
+		};
+		3C5B998746C69DCC71510508 = {
+			isa = PBXBuildFile;
+			fileRef = E6937E5BEADDABED5E48E244;
+		};
+		4E36D2E4D0F08E7DC87AF802 = {
+			isa = PBXBuildFile;
+			fileRef = 02003162D900CC2F5A2CC020;
+		};
+		537821393D50C8CA96710E61 = {
+			isa = PBXBuildFile;
+			fileRef = 1D8E48466B2423E77EE4B27A;
+		};
+		8FFD7AC91BB1558A552E00F3 = {
+			isa = PBXBuildFile;
+			fileRef = 925A85514964F5318C9A7691;
+		};
+		877F3AB7D0334EAB42D671E8 = {
+			isa = PBXBuildFile;
+			fileRef = FE395CEA8ABF9E515454DA1F;
+		};
+		136B0867735B733A1796565C = {
+			isa = PBXBuildFile;
+			fileRef = 7E567C7AEFDE371012CD74C5;
+		};
+		BFAE73D59BA9C055C9B5AA2A = {
+			isa = PBXBuildFile;
+			fileRef = D521FF940BE1742E01CC345F;
+		};
+		CFBCE62CBDCCAEE150DC5AB8 = {
+			isa = PBXBuildFile;
+			fileRef = 2816FCEC018F22310D7AA96D;
+		};
+		F5CFF0853B19DCE292F4B70A = {
+			isa = PBXBuildFile;
+			fileRef = DCD23DCD09941937E8AD8B0A;
+		};
+		87B89D7C2F4FC5E74B674DC0 = {
+			isa = PBXBuildFile;
+			fileRef = 38E1491DDA71B09B9B55FADB;
+		};
+		F6EF701C662D251FD78D3EA1 = {
+			isa = PBXBuildFile;
+			fileRef = A2D85883E55B05ED29DD0D0F;
+		};
+		4D53363176605632595FFA17 = {
+			isa = PBXBuildFile;
+			fileRef = E16C3BAF50AAAC9A45573EF0;
+		};
+		E5E60907593F74E14D3616E9 = {
+			isa = PBXBuildFile;
+			fileRef = FE47F75A75B4709F3C0ACB15;
+		};
+		5C63F1276E974EA056BC4498 = {
+			isa = PBXBuildFile;
+			fileRef = 4AF57FD163046E7C1831E244;
+		};
+		DF2B7B1CE0904E0721B1C516 = {
+			isa = PBXBuildFile;
+			fileRef = F08949446A3307D7EF8DEE7A;
+		};
+		53031A26D498F2DF062F3CED = {
+			isa = PBXBuildFile;
+			fileRef = 04277139BD51DAA74B6A8552;
+		};
+		F78626D500D74661A177CEF0 = {
+			isa = PBXBuildFile;
+			fileRef = 9B3C16842FE4AE015C306B96;
+		};
+		502B9DD289033D863CEACDBC = {
+			isa = PBXBuildFile;
+			fileRef = 30888E27C047DCB216A26A12;
+		};
+		4FEB50BF2B98EBCD89223486 = {
+			isa = PBXBuildFile;
+			fileRef = 6556E635162AAA2467A964B0;
+		};
+		EA6A36CE51A627F639213309 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			name = "AmneziaVPNApp.swift";
+			path = "App/AmneziaVPNApp.swift";
+			sourceTree = "<group>";
+		};
+		CC4AAAAA13F1C0F1285CD1E0 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			name = "AppState.swift";
+			path = "App/AppState.swift";
+			sourceTree = "<group>";
+		};
+		FE47F75A75B4709F3C0ACB15 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			name = "BuildConfig.swift";
+			path = "App/BuildConfig.swift";
+			sourceTree = "<group>";
+		};
+		DF1410A6F6BAB4839A7C061F = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			name = "Theme.swift";
+			path = "App/Theme.swift";
+			sourceTree = "<group>";
+		};
+		E758A90127FBAB599927821A = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			name = "Logger.swift";
+			path = "App/Core/Logger.swift";
+			sourceTree = "<group>";
+		};
+		26844A28EF04043D4F7E3497 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			name = "LocalCore.swift";
+			path = "App/Core/LocalCore.swift";
+			sourceTree = "<group>";
+		};
+		E7A35E57E90AE7FD786D3FA0 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			name = "Models.swift";
+			path = "App/Core/Models.swift";
+			sourceTree = "<group>";
+		};
+		2E01A21506C7B2A3BA621295 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			name = "ServerStore.swift";
+			path = "App/Core/ServerStore.swift";
+			sourceTree = "<group>";
+		};
+		94EC9805EFE2F1910A1B59F0 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			name = "SettingsStore.swift";
+			path = "App/Core/SettingsStore.swift";
+			sourceTree = "<group>";
+		};
+		2315389092445467E67065BD = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			name = "SplitTunnelingStore.swift";
+			path = "App/Core/SplitTunnelingStore.swift";
+			sourceTree = "<group>";
+		};
+		CC682D2745160615C6ECF2D9 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			name = "Importer.swift";
+			path = "App/Core/Importer.swift";
+			sourceTree = "<group>";
+		};
+		5EF26DDDE1241217DCE253CD = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			name = "VPNKeyDecoder.swift";
+			path = "App/Core/VPNKeyDecoder.swift";
+			sourceTree = "<group>";
+		};
+		0C581881EB917D134992074B = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			name = "VPNKeyEncoder.swift";
+			path = "App/Core/VPNKeyEncoder.swift";
+			sourceTree = "<group>";
+		};
+		5895FCB68169CD7BDE50EF6D = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			name = "WGConfigBuilder.swift";
+			path = "App/Core/WGConfigBuilder.swift";
+			sourceTree = "<group>";
+		};
+		32278CCDFEB02B51BDF8A4CB = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			name = "Controls.swift";
+			path = "App/Views/Controls.swift";
+			sourceTree = "<group>";
+		};
+		F574FF41B00325DB0BF4D5BB = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			name = "RootView.swift";
+			path = "App/Views/RootView.swift";
+			sourceTree = "<group>";
+		};
+		47EBDAFFD245161F5AB9B30E = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			name = "HomeView.swift";
+			path = "App/Views/HomeView.swift";
+			sourceTree = "<group>";
+		};
+		45A70A1B183304ACBEE65B07 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			name = "ServerInfoView.swift";
+			path = "App/Views/ServerInfoView.swift";
+			sourceTree = "<group>";
+		};
+		E6937E5BEADDABED5E48E244 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			name = "ServerDataView.swift";
+			path = "App/Views/ServerDataView.swift";
+			sourceTree = "<group>";
+		};
+		02003162D900CC2F5A2CC020 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			name = "SettingsView.swift";
+			path = "App/Views/SettingsView.swift";
+			sourceTree = "<group>";
+		};
+		1D8E48466B2423E77EE4B27A = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			name = "ConnectionView.swift";
+			path = "App/Views/ConnectionView.swift";
+			sourceTree = "<group>";
+		};
+		925A85514964F5318C9A7691 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			name = "ApplicationView.swift";
+			path = "App/Views/ApplicationView.swift";
+			sourceTree = "<group>";
+		};
+		FE395CEA8ABF9E515454DA1F = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			name = "AboutView.swift";
+			path = "App/Views/AboutView.swift";
+			sourceTree = "<group>";
+		};
+		7E567C7AEFDE371012CD74C5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			name = "SplitTunnelingView.swift";
+			path = "App/Views/SplitTunnelingView.swift";
+			sourceTree = "<group>";
+		};
+		D521FF940BE1742E01CC345F = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			name = "LoggingView.swift";
+			path = "App/Views/LoggingView.swift";
+			sourceTree = "<group>";
+		};
+		2816FCEC018F22310D7AA96D = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			name = "SetupWizardView.swift";
+			path = "App/Views/SetupWizardView.swift";
+			sourceTree = "<group>";
+		};
+		DCD23DCD09941937E8AD8B0A = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			name = "QrReaderView.swift";
+			path = "App/Views/QrReaderView.swift";
+			sourceTree = "<group>";
+		};
+		38E1491DDA71B09B9B55FADB = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			name = "ShareView.swift";
+			path = "App/Views/ShareView.swift";
+			sourceTree = "<group>";
+		};
+		A2D85883E55B05ED29DD0D0F = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			name = "PacketTunnelProvider.swift";
+			path = "Extension/PacketTunnelProvider.swift";
+			sourceTree = "<group>";
+		};
+		E16C3BAF50AAAC9A45573EF0 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			name = "WGConfig.swift";
+			path = "Extension/WGConfig.swift";
+			sourceTree = "<group>";
+		};
+		D0F98F4159EFDA9A0679BAF3 = {
+			isa = PBXFileReference;
+			lastKnownFileType = text.plist.xml;
+			name = "Info.plist";
+			path = "App/Info.plist";
+			sourceTree = "<group>";
+		};
+		AAB400E51C2B324AF31725D7 = {
+			isa = PBXFileReference;
+			lastKnownFileType = text.plist.xml;
+			name = "Info.plist";
+			path = "Extension/Info.plist";
+			sourceTree = "<group>";
+		};
+		4AF57FD163046E7C1831E244 = {
+			isa = PBXFileReference;
+			lastKnownFileType = folder.assetcatalog;
+			name = "Assets.xcassets";
+			path = "App/Assets.xcassets";
+			sourceTree = "<group>";
+		};
+		F08949446A3307D7EF8DEE7A = {
+			isa = PBXFileReference;
+			lastKnownFileType = file.storyboard;
+			name = "AmneziaVPNLaunchScreen.storyboard";
+			path = "../../ios/app/AmneziaVPNLaunchScreen.storyboard";
+			sourceTree = "<group>";
+		};
+		04277139BD51DAA74B6A8552 = {
+			isa = PBXFileReference;
+			lastKnownFileType = image.png;
+			name = "launch.png";
+			path = "../../ios/app/launch.png";
+			sourceTree = "<group>";
+		};
+		9B3C16842FE4AE015C306B96 = {
+			isa = PBXFileReference;
+			lastKnownFileType = text.plist.xcprivacy;
+			name = "PrivacyInfo.xcprivacy";
+			path = "../../ios/app/PrivacyInfo.xcprivacy";
+			sourceTree = "<group>";
+		};
+		30888E27C047DCB216A26A12 = {
+			isa = PBXFileReference;
+			lastKnownFileType = folder.icon;
+			name = "AppIcon.icon";
+			path = "../../images/AppIcon.icon";
+			sourceTree = "<group>";
+		};
+		6556E635162AAA2467A964B0 = {
+			isa = PBXFileReference;
+			lastKnownFileType = text.plist.xcprivacy;
+			name = "PrivacyInfo.xcprivacy";
+			path = "../../ios/networkextension/PrivacyInfo.xcprivacy";
+			sourceTree = "<group>";
+		};
+		0636ACF5E22CA2E911056498 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
+			name = "AmneziaCoreBridge.h";
+			path = "Bridge/AmneziaCoreBridge.h";
+			sourceTree = "<group>";
+		};
+		1E9E301FADA0620AA2EA3865 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.cpp.objcpp;
+			name = "AmneziaCoreBridge.mm";
+			path = "Bridge/AmneziaCoreBridge.mm";
+			sourceTree = "<group>";
+		};
+		A35B214F50E0F89060BF249B = {
+			isa = PBXFileReference;
+			explicitFileType = wrapper.application;
+			includeInIndex = 0;
+			path = "AmneziaVPN.app";
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		BFF486D4F14479500F0D74CA = {
+			isa = PBXFileReference;
+			explicitFileType = wrapper.app-extension;
+			includeInIndex = 0;
+			path = "AmneziaVPNNetworkExtension.appex";
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		858EC19C94F82BAD17B2589C = {
+			isa = PBXFileReference;
+			lastKnownFileType = wrapper.framework;
+			name = "NetworkExtension.framework";
+			path = "System/Library/Frameworks/NetworkExtension.framework";
+			sourceTree = SDKROOT;
+		};
+		D425A7A81CC20E74CD8516DD = {
+			isa = PBXBuildFile;
+			fileRef = 858EC19C94F82BAD17B2589C;
+		};
+		9B645219C58EA157FC8BF52F = {
+			isa = PBXBuildFile;
+			fileRef = 858EC19C94F82BAD17B2589C;
+		};
+		7556BFB60EB65F229544CAA5 = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = "../../3rd/amneziawg-apple";
+		};
+		DC3ADF57AEE8F10E0DFC8F37 = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7556BFB60EB65F229544CAA5;
+			productName = "WireGuardKit";
+		};
+		C8C3D7CF187C7FB75D6C915C = {
+			isa = PBXBuildFile;
+			fileRef = DC3ADF57AEE8F10E0DFC8F37;
+		};
+		FF2E511F1DB2899FABD9B49E = {
+			isa = PBXBuildFile;
+			fileRef = BFF486D4F14479500F0D74CA;
+			settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); };
+		};
+		8682261519D15BD64A9E5D31 = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (9395CB5450253A9DA54CB214, AC6762738097AB61114E3553, 347598213F7E8DEE8E8231F8, 6944EAB4689D6A60530F044F, 505B2782A3D40ABBFDBFCB36, 7E6AAE9D68FE0924031E7FE2, 0D5E21B2556919F5A7EC1864, D353B74DF0E83881CE51F760, 59B0799C11D6AA8B7FDCD0AF, DFC19ADBE26EEA5BFCCAC4B3, 16CFA4D2E3B2BDFEC32EA33D, B312A9E490B3B91D419433AD, A867BCAAC911ABB4DA1F9CBC, B37B4979DA586DFCDDFD474B, 28588264CEBA02B6874ABDAC, C38FA25183D6519CA4966396, E5242A60236CC99DE0C75E0B, 0DD8FBF37456C900BD740FB2, 3C5B998746C69DCC71510508, 4E36D2E4D0F08E7DC87AF802, 537821393D50C8CA96710E61, 8FFD7AC91BB1558A552E00F3, 877F3AB7D0334EAB42D671E8, 136B0867735B733A1796565C, BFAE73D59BA9C055C9B5AA2A, CFBCE62CBDCCAEE150DC5AB8, F5CFF0853B19DCE292F4B70A, 87B89D7C2F4FC5E74B674DC0);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E28FAD8F60ECDED9B4AD087A = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (5C63F1276E974EA056BC4498, DF2B7B1CE0904E0721B1C516, 53031A26D498F2DF062F3CED, F78626D500D74661A177CEF0, 502B9DD289033D863CEACDBC);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F001BC2AF9EB5498B3360756 = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (D425A7A81CC20E74CD8516DD);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		354DE1AFDDAA7FBB961D5290 = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (FF2E511F1DB2899FABD9B49E);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8A93BC0880D33D450048902E = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = ();
+			inputPaths = ();
+			name = "Build libwg-go.a";
+			outputPaths = ();
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -euo pipefail
+WG_GO_DIR=\"${SRCROOT}/../../3rd/amneziawg-apple/Sources/WireGuardKitGo\"
+cd \"${WG_GO_DIR}\"
+make build ARCHS=\"${ARCHS}\" PLATFORM_NAME=\"${PLATFORM_NAME}\" SDKROOT=\"${SDKROOT}\" CONFIGURATION_BUILD_DIR=\"${WG_GO_DIR}/out\"
+";
+		};
+		597FD57E57ED99CEBFF1BB02 = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (E5E60907593F74E14D3616E9, F6EF701C662D251FD78D3EA1, 4D53363176605632595FFA17);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3F447DE10FA5EDEA89764824 = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (4FEB50BF2B98EBCD89223486);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		30DF5DB2668C55DBD174B4FC = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (9B645219C58EA157FC8BF52F, C8C3D7CF187C7FB75D6C915C);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		877A6BA951A2EA0025A2ABE8 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LOCALIZATION_PREFS = "";
+				MARKETING_VERSION = 5.1.1.9;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+			};
+			name = "project:Debug";
+		};
+		959134B361DD7E21ADEA3164 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LOCALIZATION_PREFS = "";
+				MARKETING_VERSION = 5.1.1.9;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+			};
+			name = "project:Release";
+		};
+		3CF6A4F2E05B3AAE7E2CBFEE = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "../../ios/app/main.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "App/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = org.amnezia.AmneziaVPN;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = "app:Debug";
+		};
+		23FB2CAEB38545C3793097DD = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "../../ios/app/main.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "App/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = org.amnezia.AmneziaVPN;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = "app:Release";
+		};
+		2AA0223F5929D1D6BFE534CF = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_ENTITLEMENTS = "../../ios/networkextension/AmneziaVPNNetworkExtension.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = org.amnezia.AmneziaVPN.network-extension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = "ext:Debug";
+		};
+		8B2DB9053A232B59945B8323 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_ENTITLEMENTS = "../../ios/networkextension/AmneziaVPNNetworkExtension.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = org.amnezia.AmneziaVPN.network-extension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = "ext:Release";
+		};
+		12D04D787E90C9B967248BFD = {
+			isa = XCConfigurationList;
+			buildConfigurations = (877A6BA951A2EA0025A2ABE8, 959134B361DD7E21ADEA3164);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		32995943DE67267A65D32CA9 = {
+			isa = XCConfigurationList;
+			buildConfigurations = (3CF6A4F2E05B3AAE7E2CBFEE, 23FB2CAEB38545C3793097DD);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DB992BC56EC92ABCB75026C7 = {
+			isa = XCConfigurationList;
+			buildConfigurations = (2AA0223F5929D1D6BFE534CF, 8B2DB9053A232B59945B8323);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5FD45A0B5E568EA3EEE3D282 = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 98F54143AB4E86B28C3AFEE0;
+			proxyType = 1;
+			remoteGlobalIDString = 9831A0ED7992645038323751;
+			remoteInfo = "AmneziaVPNNetworkExtension";
+		};
+		21627DD4F42BC4FF1B3C51FA = {
+			isa = PBXTargetDependency;
+			target = 9831A0ED7992645038323751;
+			targetProxy = 5FD45A0B5E568EA3EEE3D282;
+		};
+		29C7B681C8D62CBAC94D51C0 = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 32995943DE67267A65D32CA9;
+			buildPhases = (8682261519D15BD64A9E5D31, F001BC2AF9EB5498B3360756, E28FAD8F60ECDED9B4AD087A, 354DE1AFDDAA7FBB961D5290);
+			buildRules = ();
+			dependencies = (21627DD4F42BC4FF1B3C51FA);
+			name = "AmneziaVPN";
+			productName = "AmneziaVPN";
+			productReference = A35B214F50E0F89060BF249B;
+			productType = "com.apple.product-type.application";
+		};
+		9831A0ED7992645038323751 = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DB992BC56EC92ABCB75026C7;
+			buildPhases = (8A93BC0880D33D450048902E, 597FD57E57ED99CEBFF1BB02, 30DF5DB2668C55DBD174B4FC, 3F447DE10FA5EDEA89764824);
+			buildRules = ();
+			dependencies = ();
+			name = "AmneziaVPNNetworkExtension";
+			packageProductDependencies = (DC3ADF57AEE8F10E0DFC8F37);
+			productName = "AmneziaVPNNetworkExtension";
+			productReference = BFF486D4F14479500F0D74CA;
+			productType = "com.apple.product-type.app-extension";
+		};
+		13858BB24ABD0AA802253F23 = {
+			isa = PBXGroup;
+			children = (E758A90127FBAB599927821A, 26844A28EF04043D4F7E3497, E7A35E57E90AE7FD786D3FA0, 2E01A21506C7B2A3BA621295, 94EC9805EFE2F1910A1B59F0, 2315389092445467E67065BD, CC682D2745160615C6ECF2D9, 5EF26DDDE1241217DCE253CD, 0C581881EB917D134992074B, 5895FCB68169CD7BDE50EF6D);
+			name = "Core";
+			sourceTree = "<group>";
+		};
+		7B96940BC34EE413B2E7E949 = {
+			isa = PBXGroup;
+			children = (32278CCDFEB02B51BDF8A4CB, F574FF41B00325DB0BF4D5BB, 47EBDAFFD245161F5AB9B30E, 45A70A1B183304ACBEE65B07, E6937E5BEADDABED5E48E244, 02003162D900CC2F5A2CC020, 1D8E48466B2423E77EE4B27A, 925A85514964F5318C9A7691, FE395CEA8ABF9E515454DA1F, 7E567C7AEFDE371012CD74C5, D521FF940BE1742E01CC345F, 2816FCEC018F22310D7AA96D, DCD23DCD09941937E8AD8B0A, 38E1491DDA71B09B9B55FADB);
+			name = "Views";
+			sourceTree = "<group>";
+		};
+		A550723EE996CDDEED6F6BAF = {
+			isa = PBXGroup;
+			children = (EA6A36CE51A627F639213309, CC4AAAAA13F1C0F1285CD1E0, FE47F75A75B4709F3C0ACB15, DF1410A6F6BAB4839A7C061F, D0F98F4159EFDA9A0679BAF3, 4AF57FD163046E7C1831E244, 13858BB24ABD0AA802253F23, 7B96940BC34EE413B2E7E949);
+			name = "App";
+			path = "App";
+			sourceTree = "<group>";
+		};
+		EE93E04A84DA441A2341BB4C = {
+			isa = PBXGroup;
+			children = (A2D85883E55B05ED29DD0D0F, E16C3BAF50AAAC9A45573EF0, AAB400E51C2B324AF31725D7);
+			name = "Extension";
+			path = "Extension";
+			sourceTree = "<group>";
+		};
+		8738964E630C6CC79FAEA3CF = {
+			isa = PBXGroup;
+			children = (0636ACF5E22CA2E911056498, 1E9E301FADA0620AA2EA3865);
+			name = "Bridge";
+			path = "Bridge";
+			sourceTree = "<group>";
+		};
+		AD1F2D43D7EA4827720CDD44 = {
+			isa = PBXGroup;
+			children = (F08949446A3307D7EF8DEE7A, 04277139BD51DAA74B6A8552, 9B3C16842FE4AE015C306B96, 6556E635162AAA2467A964B0, 30888E27C047DCB216A26A12);
+			name = "Resources";
+			sourceTree = "<group>";
+		};
+		CC4AC62561E4BE5EF2F829F3 = {
+			isa = PBXGroup;
+			children = (A35B214F50E0F89060BF249B, BFF486D4F14479500F0D74CA);
+			name = "Products";
+			sourceTree = "<group>";
+		};
+		95DCA4FAD37A9AFAE210AF0B = {
+			isa = PBXGroup;
+			children = (A550723EE996CDDEED6F6BAF, EE93E04A84DA441A2341BB4C, 8738964E630C6CC79FAEA3CF, AD1F2D43D7EA4827720CDD44, CC4AC62561E4BE5EF2F829F3);
+			sourceTree = "<group>";
+		};
+		98F54143AB4E86B28C3AFEE0 = {
+			isa = PBXProject;
+			attributes = {LastUpgradeCheck = 2600; TargetAttributes = {29C7B681C8D62CBAC94D51C0 = {CreatedOnToolsVersion = 26.0; }; 9831A0ED7992645038323751 = {CreatedOnToolsVersion = 26.0; }; }; };
+			buildConfigurationList = 12D04D787E90C9B967248BFD;
+			compatibilityVersion = "Xcode 16.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (en, );
+			mainGroup = 95DCA4FAD37A9AFAE210AF0B;
+			packageReferences = (7556BFB60EB65F229544CAA5);
+			productRefGroup = CC4AC62561E4BE5EF2F829F3;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (29C7B681C8D62CBAC94D51C0, 9831A0ED7992645038323751);
+		};
+	};
+	rootObject = 98F54143AB4E86B28C3AFEE0;
+}
