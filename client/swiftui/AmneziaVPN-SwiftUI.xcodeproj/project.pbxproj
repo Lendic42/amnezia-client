@@ -133,25 +133,25 @@
 			isa = PBXBuildFile;
 			fileRef = 4AF57FD163046E7C1831E244;
 		};
-		DF2B7B1CE0904E0721B1C516 = {
+		A82D936AFAB3E233C2812715 = {
 			isa = PBXBuildFile;
-			fileRef = F08949446A3307D7EF8DEE7A;
+			fileRef = AAB32D4C8B2E1AD3686562A7;
 		};
-		53031A26D498F2DF062F3CED = {
+		B7EB6AAB3F9D6EE03D04FB2C = {
 			isa = PBXBuildFile;
-			fileRef = 04277139BD51DAA74B6A8552;
+			fileRef = F0EE62B7F1753DB16A24D5CC;
 		};
-		F78626D500D74661A177CEF0 = {
+		312EA08A0CE352FA567D650A = {
 			isa = PBXBuildFile;
-			fileRef = 9B3C16842FE4AE015C306B96;
+			fileRef = 5A8CEF99EB89F0CFA2A77057;
 		};
-		502B9DD289033D863CEACDBC = {
+		0D3C2559AAE7BF6C16B7E930 = {
 			isa = PBXBuildFile;
-			fileRef = 30888E27C047DCB216A26A12;
+			fileRef = 70B77AEC1EC4862748489E6A;
 		};
-		4FEB50BF2B98EBCD89223486 = {
+		D0A37DBDE85AA8DE269A7155 = {
 			isa = PBXBuildFile;
-			fileRef = 6556E635162AAA2467A964B0;
+			fileRef = D390ED8E586B69939B540957;
 		};
 		EA6A36CE51A627F639213309 = {
 			isa = PBXFileReference;
@@ -384,39 +384,39 @@
 			path = "App/Assets.xcassets";
 			sourceTree = "<group>";
 		};
-		F08949446A3307D7EF8DEE7A = {
+		AAB32D4C8B2E1AD3686562A7 = {
 			isa = PBXFileReference;
 			lastKnownFileType = file.storyboard;
 			name = "AmneziaVPNLaunchScreen.storyboard";
-			path = "../../ios/app/AmneziaVPNLaunchScreen.storyboard";
+			path = "../ios/app/AmneziaVPNLaunchScreen.storyboard";
 			sourceTree = "<group>";
 		};
-		04277139BD51DAA74B6A8552 = {
+		F0EE62B7F1753DB16A24D5CC = {
 			isa = PBXFileReference;
 			lastKnownFileType = image.png;
 			name = "launch.png";
-			path = "../../ios/app/launch.png";
+			path = "../ios/app/launch.png";
 			sourceTree = "<group>";
 		};
-		9B3C16842FE4AE015C306B96 = {
+		5A8CEF99EB89F0CFA2A77057 = {
 			isa = PBXFileReference;
 			lastKnownFileType = text.plist.xcprivacy;
 			name = "PrivacyInfo.xcprivacy";
-			path = "../../ios/app/PrivacyInfo.xcprivacy";
+			path = "../ios/app/PrivacyInfo.xcprivacy";
 			sourceTree = "<group>";
 		};
-		30888E27C047DCB216A26A12 = {
+		70B77AEC1EC4862748489E6A = {
 			isa = PBXFileReference;
 			lastKnownFileType = folder.icon;
 			name = "AppIcon.icon";
-			path = "../../images/AppIcon.icon";
+			path = "../images/AppIcon.icon";
 			sourceTree = "<group>";
 		};
-		6556E635162AAA2467A964B0 = {
+		D390ED8E586B69939B540957 = {
 			isa = PBXFileReference;
 			lastKnownFileType = text.plist.xcprivacy;
 			name = "PrivacyInfo.xcprivacy";
-			path = "../../ios/networkextension/PrivacyInfo.xcprivacy";
+			path = "../ios/networkextension/PrivacyInfo.xcprivacy";
 			sourceTree = "<group>";
 		};
 		0636ACF5E22CA2E911056498 = {
@@ -464,7 +464,7 @@
 		};
 		7556BFB60EB65F229544CAA5 = {
 			isa = XCLocalSwiftPackageReference;
-			relativePath = "../../3rd/amneziawg-apple";
+			relativePath = "../3rd/amneziawg-apple";
 		};
 		DC3ADF57AEE8F10E0DFC8F37 = {
 			isa = XCSwiftPackageProductDependency;
@@ -489,7 +489,7 @@
 		E28FAD8F60ECDED9B4AD087A = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
-			files = (5C63F1276E974EA056BC4498, DF2B7B1CE0904E0721B1C516, 53031A26D498F2DF062F3CED, F78626D500D74661A177CEF0, 502B9DD289033D863CEACDBC);
+			files = (5C63F1276E974EA056BC4498, A82D936AFAB3E233C2812715, B7EB6AAB3F9D6EE03D04FB2C, 312EA08A0CE352FA567D650A, 0D3C2559AAE7BF6C16B7E930);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		F001BC2AF9EB5498B3360756 = {
@@ -517,7 +517,7 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "set -euo pipefail
-WG_GO_DIR=\"${SRCROOT}/../../3rd/amneziawg-apple/Sources/WireGuardKitGo\"
+WG_GO_DIR=\"${SRCROOT}/../3rd/amneziawg-apple/Sources/WireGuardKitGo\"
 cd \"${WG_GO_DIR}\"
 make build ARCHS=\"${ARCHS}\" PLATFORM_NAME=\"${PLATFORM_NAME}\" SDKROOT=\"${SDKROOT}\" CONFIGURATION_BUILD_DIR=\"${WG_GO_DIR}/out\"
 ";
@@ -531,7 +531,7 @@ make build ARCHS=\"${ARCHS}\" PLATFORM_NAME=\"${PLATFORM_NAME}\" SDKROOT=\"${SDK
 		3F447DE10FA5EDEA89764824 = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
-			files = (4FEB50BF2B98EBCD89223486);
+			files = (D0A37DBDE85AA8DE269A7155);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		30DF5DB2668C55DBD174B4FC = {
@@ -598,7 +598,7 @@ make build ARCHS=\"${ARCHS}\" PLATFORM_NAME=\"${PLATFORM_NAME}\" SDKROOT=\"${SDK
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "../../ios/app/main.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "../ios/app/main.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "App/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -613,7 +613,7 @@ make build ARCHS=\"${ARCHS}\" PLATFORM_NAME=\"${PLATFORM_NAME}\" SDKROOT=\"${SDK
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "../../ios/app/main.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "../ios/app/main.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "App/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -627,7 +627,7 @@ make build ARCHS=\"${ARCHS}\" PLATFORM_NAME=\"${PLATFORM_NAME}\" SDKROOT=\"${SDK
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
-				CODE_SIGN_ENTITLEMENTS = "../../ios/networkextension/AmneziaVPNNetworkExtension.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "../ios/networkextension/AmneziaVPNNetworkExtension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../../Frameworks";
@@ -643,7 +643,7 @@ make build ARCHS=\"${ARCHS}\" PLATFORM_NAME=\"${PLATFORM_NAME}\" SDKROOT=\"${SDK
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
-				CODE_SIGN_ENTITLEMENTS = "../../ios/networkextension/AmneziaVPNNetworkExtension.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "../ios/networkextension/AmneziaVPNNetworkExtension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../../Frameworks";
@@ -742,7 +742,7 @@ make build ARCHS=\"${ARCHS}\" PLATFORM_NAME=\"${PLATFORM_NAME}\" SDKROOT=\"${SDK
 		};
 		AD1F2D43D7EA4827720CDD44 = {
 			isa = PBXGroup;
-			children = (F08949446A3307D7EF8DEE7A, 04277139BD51DAA74B6A8552, 9B3C16842FE4AE015C306B96, 6556E635162AAA2467A964B0, 30888E27C047DCB216A26A12);
+			children = (AAB32D4C8B2E1AD3686562A7, F0EE62B7F1753DB16A24D5CC, 5A8CEF99EB89F0CFA2A77057, D390ED8E586B69939B540957, 70B77AEC1EC4862748489E6A);
 			name = "Resources";
 			sourceTree = "<group>";
 		};
