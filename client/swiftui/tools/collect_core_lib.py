@@ -57,6 +57,23 @@ def read_prl_libs(path):
     return match.group(1).split()
 
 
+def qt_module_paths(qt_lib_dir, module):
+    framework_dir = os.path.join(qt_lib_dir, f"Qt{module}.framework")
+    framework_prl = os.path.join(framework_dir, f"Qt{module}.prl")
+    framework_binary = os.path.join(framework_dir, f"Qt{module}")
+    if os.path.isfile(framework_prl) and os.path.isfile(framework_binary):
+        return framework_prl, framework_binary
+    prl_path = os.path.join(qt_lib_dir, f"libQt6{module}.prl")
+    archive = os.path.join(qt_lib_dir, f"libQt6{module}.a")
+    if os.path.isfile(prl_path) and os.path.isfile(archive):
+        return prl_path, archive
+    fail(f"missing Qt module {module}: no {framework_prl} and no {prl_path}")
+
+
+def qt_framework_exists(qt_lib_dir, module):
+    return os.path.isdir(os.path.join(qt_lib_dir, f"Qt{module}.framework"))
+
+
 def resolve_qt_closure(qt_lib_dir):
     archives = {}
     frameworks = set()
@@ -68,19 +85,24 @@ def resolve_qt_closure(qt_lib_dir):
         if module in seen:
             continue
         seen.add(module)
-        prl_path = os.path.join(qt_lib_dir, f"libQt6{module}.prl")
-        if not os.path.isfile(prl_path):
-            fail(f"missing Qt .prl file: {prl_path}")
-        archive = os.path.join(qt_lib_dir, f"libQt6{module}.a")
-        if not os.path.isfile(archive):
-            fail(f"missing Qt static library: {archive}")
+        prl_path, archive = qt_module_paths(qt_lib_dir, module)
         archives[module] = archive
         tokens = read_prl_libs(prl_path)
         index = 0
         while index < len(tokens):
             token = tokens[index]
             if token == "-framework" and index + 1 < len(tokens):
-                frameworks.add(tokens[index + 1])
+                name = tokens[index + 1]
+                if name.startswith("Qt"):
+                    dep = name[2:]
+                    if dep.startswith("6"):
+                        dep = dep[1:]
+                    if qt_framework_exists(qt_lib_dir, dep):
+                        queue.append(dep)
+                    else:
+                        frameworks.add(name)
+                else:
+                    frameworks.add(name)
                 index += 2
             elif token.startswith("-lQt6"):
                 queue.append(token[5:])
