@@ -519,7 +519,7 @@
 			shellScript = "set -euo pipefail
 WG_GO_DIR=\"${SRCROOT}/../3rd/amneziawg-apple/Sources/WireGuardKitGo\"
 cd \"${WG_GO_DIR}\"
-make build ARCHS=\"${ARCHS}\" PLATFORM_NAME=\"${PLATFORM_NAME}\" SDKROOT=\"${SDKROOT}\" CONFIGURATION_BUILD_DIR=\"${WG_GO_DIR}/out\"
+make build ARCHS=\"${ARCHS}\" PLATFORM_NAME=\"${PLATFORM_NAME}\" SDKROOT=\"${SDKROOT}\" CONFIGURATION_BUILD_DIR=\"${WG_GO_DIR}/out\" CONFIGURATION_TEMP_DIR=\"${WG_GO_DIR}/.tmp\"
 ";
 		};
 		597FD57E57ED99CEBFF1BB02 = {
