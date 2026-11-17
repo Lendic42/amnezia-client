@@ -519,7 +519,7 @@
 			shellScript = "set -euo pipefail
 WG_GO_DIR=\"${SRCROOT}/../3rd/amneziawg-apple/Sources/WireGuardKitGo\"
 cd \"${WG_GO_DIR}\"
-make build ARCHS=\"${ARCHS}\" PLATFORM_NAME=\"${PLATFORM_NAME}\" SDKROOT=\"${SDKROOT}\" CONFIGURATION_BUILD_DIR=\"${WG_GO_DIR}/out\" CONFIGURATION_TEMP_DIR=\"${WG_GO_DIR}/.tmp\"
+make build version-header ARCHS=\"${ARCHS}\" PLATFORM_NAME=\"${PLATFORM_NAME}\" SDKROOT=\"${SDKROOT}\" CONFIGURATION_BUILD_DIR=\"${WG_GO_DIR}/out\" CONFIGURATION_TEMP_DIR=\"${WG_GO_DIR}/.tmp\" DEPLOYMENT_TARGET_CLANG_FLAG_NAME=miphoneos-version-min DEPLOYMENT_TARGET_CLANG_ENV_NAME=IPHONEOS_DEPLOYMENT_TARGET IPHONEOS_DEPLOYMENT_TARGET=\"${IPHONEOS_DEPLOYMENT_TARGET}\"
 ";
 		};
 		597FD57E57ED99CEBFF1BB02 = {
@@ -556,7 +556,7 @@ make build ARCHS=\"${ARCHS}\" PLATFORM_NAME=\"${PLATFORM_NAME}\" SDKROOT=\"${SDK
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LOCALIZATION_PREFS = "";
 				MARKETING_VERSION = 5.1.1.9;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
@@ -565,7 +565,7 @@ make build ARCHS=\"${ARCHS}\" PLATFORM_NAME=\"${PLATFORM_NAME}\" SDKROOT=\"${SDK
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
 			};
-			name = "project:Debug";
+			name = "Debug";
 		};
 		959134B361DD7E21ADEA3164 = {
 			isa = XCBuildConfiguration;
@@ -584,7 +584,7 @@ make build ARCHS=\"${ARCHS}\" PLATFORM_NAME=\"${PLATFORM_NAME}\" SDKROOT=\"${SDK
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_C_LANGUAGE_STANDARD = gnu17;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LOCALIZATION_PREFS = "";
 				MARKETING_VERSION = 5.1.1.9;
 				MTL_ENABLE_DEBUG_INFO = NO;
@@ -592,7 +592,7 @@ make build ARCHS=\"${ARCHS}\" PLATFORM_NAME=\"${PLATFORM_NAME}\" SDKROOT=\"${SDK
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
 			};
-			name = "project:Release";
+			name = "Release";
 		};
 		3CF6A4F2E05B3AAE7E2CBFEE = {
 			isa = XCBuildConfiguration;
@@ -607,7 +607,7 @@ make build ARCHS=\"${ARCHS}\" PLATFORM_NAME=\"${PLATFORM_NAME}\" SDKROOT=\"${SDK
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
-			name = "app:Debug";
+			name = "Debug";
 		};
 		23FB2CAEB38545C3793097DD = {
 			isa = XCBuildConfiguration;
@@ -621,7 +621,7 @@ make build ARCHS=\"${ARCHS}\" PLATFORM_NAME=\"${PLATFORM_NAME}\" SDKROOT=\"${SDK
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
-			name = "app:Release";
+			name = "Release";
 		};
 		2AA0223F5929D1D6BFE534CF = {
 			isa = XCBuildConfiguration;
@@ -637,7 +637,7 @@ make build ARCHS=\"${ARCHS}\" PLATFORM_NAME=\"${PLATFORM_NAME}\" SDKROOT=\"${SDK
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
-			name = "ext:Debug";
+			name = "Debug";
 		};
 		8B2DB9053A232B59945B8323 = {
 			isa = XCBuildConfiguration;
@@ -652,7 +652,7 @@ make build ARCHS=\"${ARCHS}\" PLATFORM_NAME=\"${PLATFORM_NAME}\" SDKROOT=\"${SDK
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
-			name = "ext:Release";
+			name = "Release";
 		};
 		12D04D787E90C9B967248BFD = {
 			isa = XCConfigurationList;
