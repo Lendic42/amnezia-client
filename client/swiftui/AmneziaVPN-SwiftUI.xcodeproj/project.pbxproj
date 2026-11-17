@@ -125,6 +125,10 @@
 			isa = PBXBuildFile;
 			fileRef = E16C3BAF50AAAC9A45573EF0;
 		};
+		F66AE40A13DAF8804DDDB171 = {
+			isa = PBXBuildFile;
+			fileRef = 5F4888821E1F8B3E7EDAD714;
+		};
 		E5E60907593F74E14D3616E9 = {
 			isa = PBXBuildFile;
 			fileRef = FE47F75A75B4709F3C0ACB15;
@@ -363,6 +367,13 @@
 			path = "Extension/WGConfig.swift";
 			sourceTree = "<group>";
 		};
+		5F4888821E1F8B3E7EDAD714 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			name = "WgQuickConfig.swift";
+			path = "Extension/WgQuickConfig.swift";
+			sourceTree = "<group>";
+		};
 		D0F98F4159EFDA9A0679BAF3 = {
 			isa = PBXFileReference;
 			lastKnownFileType = text.plist.xml;
@@ -525,7 +536,7 @@ make build version-header ARCHS=\"${ARCHS}\" PLATFORM_NAME=\"${PLATFORM_NAME}\" 
 		597FD57E57ED99CEBFF1BB02 = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
-			files = (E5E60907593F74E14D3616E9, F6EF701C662D251FD78D3EA1, 4D53363176605632595FFA17);
+			files = (E5E60907593F74E14D3616E9, F6EF701C662D251FD78D3EA1, 4D53363176605632595FFA17, F66AE40A13DAF8804DDDB171);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		3F447DE10FA5EDEA89764824 = {
@@ -727,7 +738,7 @@ make build version-header ARCHS=\"${ARCHS}\" PLATFORM_NAME=\"${PLATFORM_NAME}\" 
 		};
 		167E46A597A1DD70ACDDD404 = {
 			isa = PBXGroup;
-			children = (A2D85883E55B05ED29DD0D0F, E16C3BAF50AAAC9A45573EF0, AAB400E51C2B324AF31725D7);
+			children = (A2D85883E55B05ED29DD0D0F, E16C3BAF50AAAC9A45573EF0, 5F4888821E1F8B3E7EDAD714, AAB400E51C2B324AF31725D7);
 			name = "Extension";
 			sourceTree = "<group>";
 		};

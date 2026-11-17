@@ -56,7 +56,7 @@ struct ConnectionView: View {
             .onAppear {
                 useAmneziaDns = appState.core.settings.useAmneziaDns
             }
-            .onChange(of: useAmneziaDns) { _, newValue in
+            .onChange(of: useAmneziaDns) { newValue in
                 appState.core.settings.useAmneziaDns = newValue
             }
         }

@@ -52,7 +52,7 @@ struct Importer {
         throw ImportError.invalidConfig
     }
 
-    private static func extractConfigFromData(_ data: String, fileName: String, nextServerName: String) throws -> ImportedConfig {
+    static func extractConfigFromData(_ data: String, fileName: String, nextServerName: String) throws -> ImportedConfig {
         var config = data
         let format = checkConfigFormat(config)
         if format == .invalid {

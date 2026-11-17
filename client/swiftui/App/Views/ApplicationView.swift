@@ -79,10 +79,10 @@ struct ApplicationView: View {
                 allowScreenshots = appState.core.settings.isScreenshotsEnabled
                 autoUpdateCheck = appState.core.settings.isAutoUpdateCheckEnabled
             }
-            .onChange(of: allowScreenshots) { _, newValue in
+            .onChange(of: allowScreenshots) { newValue in
                 appState.core.settings.isScreenshotsEnabled = newValue
             }
-            .onChange(of: autoUpdateCheck) { _, newValue in
+            .onChange(of: autoUpdateCheck) { newValue in
                 appState.core.settings.isAutoUpdateCheckEnabled = newValue
             }
             .alert("Reset settings and remove all data from the application?", isPresented: $showResetConfirm) {

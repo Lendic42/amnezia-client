@@ -84,6 +84,7 @@ APP_SWIFT = [
 EXT_SWIFT = [
     "Extension/PacketTunnelProvider.swift",
     "Extension/WGConfig.swift",
+    "Extension/WgQuickConfig.swift",
 ]
 
 APP_RESOURCES = [
@@ -457,6 +458,7 @@ def main():
     ext_group = group("Extension", None, [
         uid("fileref:Extension/PacketTunnelProvider.swift"),
         uid("fileref:Extension/WGConfig.swift"),
+        uid("fileref:Extension/WgQuickConfig.swift"),
         uid("fileref:Extension/Info.plist"),
     ])
     bridge_group = group("Bridge", None, [

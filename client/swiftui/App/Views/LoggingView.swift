@@ -82,7 +82,7 @@ struct LoggingView: View {
             .onAppear {
                 isLoggingEnabled = appState.core.settings.isLoggingEnabled
             }
-            .onChange(of: isLoggingEnabled) { _, newValue in
+            .onChange(of: isLoggingEnabled) { newValue in
                 appState.core.settings.isLoggingEnabled = newValue
                 if newValue {
                     appState.core.settings.loggingEnabledSince = Date()
@@ -175,7 +175,7 @@ struct LogViewerView: View {
         .onAppear {
             refresh()
         }
-        .onChange(of: selectedStream) { _, _ in
+        .onChange(of: selectedStream) {
             refresh()
         }
         .sheet(isPresented: $showExporter) {

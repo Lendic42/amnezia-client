@@ -66,19 +66,16 @@ struct HomeView: View {
                 serversSheet
                     .presentationDetents([.fraction(0.77)])
                     .presentationDragIndicator(.visible)
-                    .presentationBackground(AmneziaTheme.bgSurface)
             }
             .sheet(isPresented: $showContainersSheet) {
                 containersSheet
                     .presentationDetents([.fraction(0.9)])
                     .presentationDragIndicator(.visible)
-                    .presentationBackground(AmneziaTheme.bgSurface)
             }
             .sheet(isPresented: $showSplitTunnelingDrawer) {
                 splitTunnelingDrawer
                     .presentationDetents([.medium])
                     .presentationDragIndicator(.visible)
-                    .presentationBackground(AmneziaTheme.bgSurface)
             }
         }
     }

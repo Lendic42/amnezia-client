@@ -81,7 +81,6 @@ struct ServerInfoView: View {
             renameSheet
                 .presentationDetents([.medium])
                 .presentationDragIndicator(.visible)
-                .presentationBackground(AmneziaTheme.bgSurface)
         }
     }
 
@@ -159,7 +158,7 @@ struct ServerInfoView: View {
             AmneziaTextField(placeholder: "Server name", text: $renameText)
                 .padding(.horizontal, 16)
                 .padding(.top, 24)
-                .onChange(of: renameText) { _, newValue in
+                .onChange(of: renameText) { newValue in
                     if newValue.count > 30 {
                         renameText = String(newValue.prefix(30))
                     }

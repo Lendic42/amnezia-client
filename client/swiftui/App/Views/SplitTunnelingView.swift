@@ -117,12 +117,12 @@ struct SplitTunnelingView: View {
                 appState.showSnackbar("Cannot change split tunneling settings during active connection")
             }
         }
-        .onChange(of: isEnabled) { _, newValue in
+        .onChange(of: isEnabled) { newValue in
             var current = store.state
             current.isEnabled = newValue
             store.state = current
         }
-        .onChange(of: routeModeIndex) { _, newValue in
+        .onChange(of: routeModeIndex) { newValue in
             var current = store.state
             current.routeMode = newValue == 1 ? .directly : .viaVpn
             store.state = current
