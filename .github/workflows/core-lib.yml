@@ -8,6 +8,7 @@ on:
       - "client/ui/**"
       - "client/platforms/ios/**"
       - "client/swiftui/Bridge/**"
+      - "client/swiftui/tools/collect_core_lib.py"
       - "client/CMakeLists.txt"
       - "client/cmake/**"
       - "cmake/**"
@@ -21,6 +22,7 @@ on:
       - "client/ui/**"
       - "client/platforms/ios/**"
       - "client/swiftui/Bridge/**"
+      - "client/swiftui/tools/collect_core_lib.py"
       - "client/CMakeLists.txt"
       - "client/cmake/**"
       - "cmake/**"
@@ -108,9 +110,13 @@ jobs:
 
       - name: Collect artifact
         run: |
+          python3 client/swiftui/tools/collect_core_lib.py \
+            build-core \
+            "${{ runner.temp }}/Qt/${{ env.QT_VERSION }}/ios" \
+            core-lib-artifact
           mkdir -p core-lib-artifact/headers
-          cp build-core/client/Release-iphoneos/libAmneziaCore.a core-lib-artifact/
           cp client/swiftui/Bridge/AmneziaCoreBridge.h core-lib-artifact/headers/
+          cp client/swiftui/Bridge/AmneziaCoreBootstrap.h core-lib-artifact/headers/
           ls -lh core-lib-artifact/ core-lib-artifact/headers/
 
       - name: Upload core library artifact
