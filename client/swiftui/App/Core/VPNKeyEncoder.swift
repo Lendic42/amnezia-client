@@ -43,7 +43,7 @@ enum VPNKeyEncoder {
                 repeat {
                     stream.dst_ptr = dstBase
                     stream.dst_size = chunkSize
-                    status = compression_stream_process(&stream, COMPRESSION_STREAM_FINALIZE)
+                    status = compression_stream_process(&stream, Int32(COMPRESSION_STREAM_FINALIZE.rawValue))
                     let produced = chunkSize - stream.dst_size
                     if produced > 0 {
                         output.append(dstBase, count: produced)
