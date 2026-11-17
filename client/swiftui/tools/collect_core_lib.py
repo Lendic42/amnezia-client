@@ -118,19 +118,50 @@ def resolve_qt_closure(qt_lib_dir):
     return archives, frameworks, link_flags
 
 
-def find_archive(root, name, package):
-    matches = []
-    for dirpath, _dirnames, filenames in os.walk(root):
+def conan_package_folders(build_dir):
+    folders = {}
+    conan_dir = os.path.join(build_dir, "conan")
+    if not os.path.isdir(conan_dir):
+        return folders
+    pattern = re.compile(r"set\(\w+_PACKAGE_FOLDER(_[A-Za-z]+)?\s+\"([^\"]+)\"\)")
+    for name in sorted(os.listdir(conan_dir)):
+        if not name.endswith(".cmake"):
+            continue
+        path = os.path.join(conan_dir, name)
+        if not os.path.isfile(path):
+            continue
+        with open(path, encoding="utf-8", errors="replace") as handle:
+            for line in handle:
+                match = pattern.search(line)
+                if match:
+                    suffix = (match.group(1) or "").upper()
+                    folders.setdefault(suffix, []).append(match.group(2))
+    return folders
+
+
+def find_conan_archive(build_dir, conan_home, name, package):
+    folders = conan_package_folders(build_dir)
+    for suffix in ("_RELEASE", ""):
+        for folder in folders.get(suffix, []):
+            candidate = os.path.join(folder, "lib", name)
+            if os.path.isfile(candidate):
+                return candidate
+    for suffix in sorted(folders):
+        if suffix in ("_RELEASE", ""):
+            continue
+        for folder in folders[suffix]:
+            candidate = os.path.join(folder, "lib", name)
+            if os.path.isfile(candidate):
+                return candidate
+    prefix = package[:5]
+    for dirpath, _dirnames, filenames in os.walk(conan_home):
         if name not in filenames:
             continue
         parts = dirpath.split(os.sep)
-        if package and not any(part.startswith(package) for part in parts):
+        if not any(part.startswith(prefix) for part in parts):
             continue
-        matches.append(os.path.join(dirpath, name))
-    if not matches:
-        fail(f"archive {name} not found under {root}")
-    matches.sort()
-    return matches[0]
+        return os.path.join(dirpath, name)
+    fail(f"archive {name} not found under {os.path.join(build_dir, 'conan')} or {conan_home}")
 
 
 def find_builtin_archive(build_dir, name):
@@ -167,7 +198,7 @@ def main():
 
     conan_archives = []
     for name, package in CONAN_ARCHIVES.items():
-        conan_archives.append(find_archive(conan_home, name, package))
+        conan_archives.append(find_conan_archive(build_dir, conan_home, name, package))
 
     builtin_archives = [find_builtin_archive(build_dir, name) for name in BUILTIN_ARCHIVES]
 
