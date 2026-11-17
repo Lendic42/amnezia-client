@@ -18,7 +18,7 @@ enum VPNKeyEncoder {
         var output = Data()
         let chunkSize = 64 * 1024
         var chunk = [UInt8](repeating: 0, count: chunkSize)
-        var stream = compression_stream(dst_ptr: nil, dst_size: 0, src_ptr: nil, src_size: 0, state: nil)
+        var stream = compression_stream()
         var status = compression_stream_init(&stream, COMPRESSION_STREAM_ENCODE, COMPRESSION_ZLIB)
         guard status != COMPRESSION_STATUS_ERROR else {
             throw VPNKeyDecodingError.invalidDecompression
