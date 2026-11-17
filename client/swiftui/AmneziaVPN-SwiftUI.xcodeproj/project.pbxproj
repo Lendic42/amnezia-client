@@ -25,17 +25,13 @@
 			isa = PBXBuildFile;
 			fileRef = E758A90127FBAB599927821A;
 		};
-		7E6AAE9D68FE0924031E7FE2 = {
+		353E0FF7674BC33229611D40 = {
 			isa = PBXBuildFile;
-			fileRef = 26844A28EF04043D4F7E3497;
+			fileRef = CE8AFDE16192C64E9117FCD3;
 		};
 		0D5E21B2556919F5A7EC1864 = {
 			isa = PBXBuildFile;
 			fileRef = E7A35E57E90AE7FD786D3FA0;
-		};
-		D353B74DF0E83881CE51F760 = {
-			isa = PBXBuildFile;
-			fileRef = 2E01A21506C7B2A3BA621295;
 		};
 		59B0799C11D6AA8B7FDCD0AF = {
 			isa = PBXBuildFile;
@@ -44,22 +40,6 @@
 		DFC19ADBE26EEA5BFCCAC4B3 = {
 			isa = PBXBuildFile;
 			fileRef = 2315389092445467E67065BD;
-		};
-		16CFA4D2E3B2BDFEC32EA33D = {
-			isa = PBXBuildFile;
-			fileRef = CC682D2745160615C6ECF2D9;
-		};
-		B312A9E490B3B91D419433AD = {
-			isa = PBXBuildFile;
-			fileRef = 5EF26DDDE1241217DCE253CD;
-		};
-		A867BCAAC911ABB4DA1F9CBC = {
-			isa = PBXBuildFile;
-			fileRef = 0C581881EB917D134992074B;
-		};
-		B37B4979DA586DFCDDFD474B = {
-			isa = PBXBuildFile;
-			fileRef = 5895FCB68169CD7BDE50EF6D;
 		};
 		28588264CEBA02B6874ABDAC = {
 			isa = PBXBuildFile;
@@ -192,11 +172,11 @@
 			path = "App/Core/Logger.swift";
 			sourceTree = "<group>";
 		};
-		26844A28EF04043D4F7E3497 = {
+		CE8AFDE16192C64E9117FCD3 = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.swift;
-			name = "LocalCore.swift";
-			path = "App/Core/LocalCore.swift";
+			name = "AmneziaCoreAdapter.swift";
+			path = "App/Core/AmneziaCoreAdapter.swift";
 			sourceTree = "<group>";
 		};
 		E7A35E57E90AE7FD786D3FA0 = {
@@ -204,13 +184,6 @@
 			lastKnownFileType = sourcecode.swift;
 			name = "Models.swift";
 			path = "App/Core/Models.swift";
-			sourceTree = "<group>";
-		};
-		2E01A21506C7B2A3BA621295 = {
-			isa = PBXFileReference;
-			lastKnownFileType = sourcecode.swift;
-			name = "ServerStore.swift";
-			path = "App/Core/ServerStore.swift";
 			sourceTree = "<group>";
 		};
 		94EC9805EFE2F1910A1B59F0 = {
@@ -225,34 +198,6 @@
 			lastKnownFileType = sourcecode.swift;
 			name = "SplitTunnelingStore.swift";
 			path = "App/Core/SplitTunnelingStore.swift";
-			sourceTree = "<group>";
-		};
-		CC682D2745160615C6ECF2D9 = {
-			isa = PBXFileReference;
-			lastKnownFileType = sourcecode.swift;
-			name = "Importer.swift";
-			path = "App/Core/Importer.swift";
-			sourceTree = "<group>";
-		};
-		5EF26DDDE1241217DCE253CD = {
-			isa = PBXFileReference;
-			lastKnownFileType = sourcecode.swift;
-			name = "VPNKeyDecoder.swift";
-			path = "App/Core/VPNKeyDecoder.swift";
-			sourceTree = "<group>";
-		};
-		0C581881EB917D134992074B = {
-			isa = PBXFileReference;
-			lastKnownFileType = sourcecode.swift;
-			name = "VPNKeyEncoder.swift";
-			path = "App/Core/VPNKeyEncoder.swift";
-			sourceTree = "<group>";
-		};
-		5895FCB68169CD7BDE50EF6D = {
-			isa = PBXFileReference;
-			lastKnownFileType = sourcecode.swift;
-			name = "WGConfigBuilder.swift";
-			path = "App/Core/WGConfigBuilder.swift";
 			sourceTree = "<group>";
 		};
 		32278CCDFEB02B51BDF8A4CB = {
@@ -381,6 +326,13 @@
 			path = "App/Info.plist";
 			sourceTree = "<group>";
 		};
+		265DB9606191D4EF936FCACC = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
+			name = "AmneziaVPN-Bridging-Header.h";
+			path = "App/AmneziaVPN-Bridging-Header.h";
+			sourceTree = "<group>";
+		};
 		AAB400E51C2B324AF31725D7 = {
 			isa = PBXFileReference;
 			lastKnownFileType = text.plist.xml;
@@ -444,6 +396,20 @@
 			path = "Bridge/AmneziaCoreBridge.mm";
 			sourceTree = "<group>";
 		};
+		D9F0916211CFD72DF2A37085 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
+			name = "AmneziaCoreBootstrap.h";
+			path = "Bridge/AmneziaCoreBootstrap.h";
+			sourceTree = "<group>";
+		};
+		01E6DAAB67EDEA077BA0B6EA = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.cpp.objcpp;
+			name = "AmneziaCoreBootstrap.mm";
+			path = "Bridge/AmneziaCoreBootstrap.mm";
+			sourceTree = "<group>";
+		};
 		A35B214F50E0F89060BF249B = {
 			isa = PBXFileReference;
 			explicitFileType = wrapper.application;
@@ -486,6 +452,17 @@
 			isa = PBXBuildFile;
 			productRef = DC3ADF57AEE8F10E0DFC8F37;
 		};
+		8B45B2BA1D84BB4B95C164AD = {
+			isa = PBXFileReference;
+			lastKnownFileType = archive.ar;
+			name = "libAmneziaCore.a";
+			path = "../../core-lib/libAmneziaCore.a";
+			sourceTree = "<group>";
+		};
+		503C03D7E5DEAED87663EA6F = {
+			isa = PBXBuildFile;
+			fileRef = 8B45B2BA1D84BB4B95C164AD;
+		};
 		FF2E511F1DB2899FABD9B49E = {
 			isa = PBXBuildFile;
 			fileRef = BFF486D4F14479500F0D74CA;
@@ -494,7 +471,7 @@
 		8682261519D15BD64A9E5D31 = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
-			files = (9395CB5450253A9DA54CB214, AC6762738097AB61114E3553, 347598213F7E8DEE8E8231F8, 6944EAB4689D6A60530F044F, 505B2782A3D40ABBFDBFCB36, 7E6AAE9D68FE0924031E7FE2, 0D5E21B2556919F5A7EC1864, D353B74DF0E83881CE51F760, 59B0799C11D6AA8B7FDCD0AF, DFC19ADBE26EEA5BFCCAC4B3, 16CFA4D2E3B2BDFEC32EA33D, B312A9E490B3B91D419433AD, A867BCAAC911ABB4DA1F9CBC, B37B4979DA586DFCDDFD474B, 28588264CEBA02B6874ABDAC, C38FA25183D6519CA4966396, E5242A60236CC99DE0C75E0B, 0DD8FBF37456C900BD740FB2, 3C5B998746C69DCC71510508, 4E36D2E4D0F08E7DC87AF802, 537821393D50C8CA96710E61, 8FFD7AC91BB1558A552E00F3, 877F3AB7D0334EAB42D671E8, 136B0867735B733A1796565C, BFAE73D59BA9C055C9B5AA2A, CFBCE62CBDCCAEE150DC5AB8, F5CFF0853B19DCE292F4B70A, 87B89D7C2F4FC5E74B674DC0);
+			files = (9395CB5450253A9DA54CB214, AC6762738097AB61114E3553, 347598213F7E8DEE8E8231F8, 6944EAB4689D6A60530F044F, 505B2782A3D40ABBFDBFCB36, 353E0FF7674BC33229611D40, 0D5E21B2556919F5A7EC1864, 59B0799C11D6AA8B7FDCD0AF, DFC19ADBE26EEA5BFCCAC4B3, 28588264CEBA02B6874ABDAC, C38FA25183D6519CA4966396, E5242A60236CC99DE0C75E0B, 0DD8FBF37456C900BD740FB2, 3C5B998746C69DCC71510508, 4E36D2E4D0F08E7DC87AF802, 537821393D50C8CA96710E61, 8FFD7AC91BB1558A552E00F3, 877F3AB7D0334EAB42D671E8, 136B0867735B733A1796565C, BFAE73D59BA9C055C9B5AA2A, CFBCE62CBDCCAEE150DC5AB8, F5CFF0853B19DCE292F4B70A, 87B89D7C2F4FC5E74B674DC0);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		E28FAD8F60ECDED9B4AD087A = {
@@ -506,7 +483,7 @@
 		F001BC2AF9EB5498B3360756 = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
-			files = (D425A7A81CC20E74CD8516DD);
+			files = (D425A7A81CC20E74CD8516DD, 503C03D7E5DEAED87663EA6F);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		354DE1AFDDAA7FBB961D5290 = {
@@ -611,10 +588,13 @@ make build version-header ARCHS=\"${ARCHS}\" PLATFORM_NAME=\"${PLATFORM_NAME}\" 
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "../ios/app/main.entitlements";
 				CODE_SIGN_STYLE = Automatic;
+				HEADER_SEARCH_PATHS = "$(inherited) $(SRCROOT)/Bridge $(SRCROOT)/../../core-lib/headers";
 				INFOPLIST_FILE = "App/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "$(inherited) $(SRCROOT)/../../core-lib";
 				PRODUCT_BUNDLE_IDENTIFIER = org.amnezia.AmneziaVPN;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "App/AmneziaVPN-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -626,10 +606,13 @@ make build version-header ARCHS=\"${ARCHS}\" PLATFORM_NAME=\"${PLATFORM_NAME}\" 
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "../ios/app/main.entitlements";
 				CODE_SIGN_STYLE = Automatic;
+				HEADER_SEARCH_PATHS = "$(inherited) $(SRCROOT)/Bridge $(SRCROOT)/../../core-lib/headers";
 				INFOPLIST_FILE = "App/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "$(inherited) $(SRCROOT)/../../core-lib";
 				PRODUCT_BUNDLE_IDENTIFIER = org.amnezia.AmneziaVPN;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "App/AmneziaVPN-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = "Release";
@@ -722,7 +705,7 @@ make build version-header ARCHS=\"${ARCHS}\" PLATFORM_NAME=\"${PLATFORM_NAME}\" 
 		};
 		13858BB24ABD0AA802253F23 = {
 			isa = PBXGroup;
-			children = (E758A90127FBAB599927821A, 26844A28EF04043D4F7E3497, E7A35E57E90AE7FD786D3FA0, 2E01A21506C7B2A3BA621295, 94EC9805EFE2F1910A1B59F0, 2315389092445467E67065BD, CC682D2745160615C6ECF2D9, 5EF26DDDE1241217DCE253CD, 0C581881EB917D134992074B, 5895FCB68169CD7BDE50EF6D);
+			children = (E758A90127FBAB599927821A, CE8AFDE16192C64E9117FCD3, E7A35E57E90AE7FD786D3FA0, 94EC9805EFE2F1910A1B59F0, 2315389092445467E67065BD);
 			name = "Core";
 			sourceTree = "<group>";
 		};
@@ -734,7 +717,7 @@ make build version-header ARCHS=\"${ARCHS}\" PLATFORM_NAME=\"${PLATFORM_NAME}\" 
 		};
 		12E0AB2E235328F763D14742 = {
 			isa = PBXGroup;
-			children = (EA6A36CE51A627F639213309, CC4AAAAA13F1C0F1285CD1E0, FE47F75A75B4709F3C0ACB15, DF1410A6F6BAB4839A7C061F, D0F98F4159EFDA9A0679BAF3, 4AF57FD163046E7C1831E244, 13858BB24ABD0AA802253F23, 7B96940BC34EE413B2E7E949);
+			children = (EA6A36CE51A627F639213309, CC4AAAAA13F1C0F1285CD1E0, FE47F75A75B4709F3C0ACB15, DF1410A6F6BAB4839A7C061F, D0F98F4159EFDA9A0679BAF3, 265DB9606191D4EF936FCACC, 4AF57FD163046E7C1831E244, 13858BB24ABD0AA802253F23, 7B96940BC34EE413B2E7E949);
 			name = "App";
 			sourceTree = "<group>";
 		};
@@ -746,8 +729,14 @@ make build version-header ARCHS=\"${ARCHS}\" PLATFORM_NAME=\"${PLATFORM_NAME}\" 
 		};
 		A4E43A5CA219F05B418C1A29 = {
 			isa = PBXGroup;
-			children = (0636ACF5E22CA2E911056498, 1E9E301FADA0620AA2EA3865);
+			children = (0636ACF5E22CA2E911056498, 1E9E301FADA0620AA2EA3865, D9F0916211CFD72DF2A37085, 01E6DAAB67EDEA077BA0B6EA);
 			name = "Bridge";
+			sourceTree = "<group>";
+		};
+		1AAA3AC484718820487CA169 = {
+			isa = PBXGroup;
+			children = (8B45B2BA1D84BB4B95C164AD);
+			name = "CoreLib";
 			sourceTree = "<group>";
 		};
 		AD1F2D43D7EA4827720CDD44 = {
@@ -764,7 +753,7 @@ make build version-header ARCHS=\"${ARCHS}\" PLATFORM_NAME=\"${PLATFORM_NAME}\" 
 		};
 		95DCA4FAD37A9AFAE210AF0B = {
 			isa = PBXGroup;
-			children = (12E0AB2E235328F763D14742, 167E46A597A1DD70ACDDD404, A4E43A5CA219F05B418C1A29, AD1F2D43D7EA4827720CDD44, CC4AC62561E4BE5EF2F829F3);
+			children = (12E0AB2E235328F763D14742, 167E46A597A1DD70ACDDD404, A4E43A5CA219F05B418C1A29, 1AAA3AC484718820487CA169, AD1F2D43D7EA4827720CDD44, CC4AC62561E4BE5EF2F829F3);
 			sourceTree = "<group>";
 		};
 		98F54143AB4E86B28C3AFEE0 = {
