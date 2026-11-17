@@ -28,27 +28,37 @@ jobs:
       - name: Check out amneziawg-apple submodule
         run: git submodule update --init client/3rd/amneziawg-apple
 
-      - name: Setup Xcode 26.4
-        uses: maxim-lobanov/setup-xcode@v1
-        with:
-          xcode-version: '26.4'
-
-      - name: Verify iOS SDK present
+      - name: Select Xcode 26
         run: |
+          sudo xcode-select -s /Applications/Xcode_26.app 2>/dev/null \
+            || sudo xcode-select -s /Applications/Xcode_26.0.app 2>/dev/null \
+            || echo "using default Xcode"
           xcodebuild -version
-          xcrun --sdk iphoneos --show-sdk-path
 
       - name: Set up Go 1.26
         uses: actions/setup-go@v5
         with:
           go-version: "1.26"
-          cache-dependency-path: client/3rd/amneziawg-apple/Sources/WireGuardKitGo/go.sum
+
+      - name: Download core library artifact
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          RUN_ID=$(gh api "repos/${{ github.repository }}/actions/workflows/core-lib.yml/runs?status=success&per_page=1" --jq '.workflow_runs[0].id')
+          if [ -z "$RUN_ID" ] || [ "$RUN_ID" = "null" ]; then
+            echo "::error::no successful core-lib run found; run the 'Build core library' workflow first"
+            exit 1
+          fi
+          echo "core-lib run: $RUN_ID"
+          gh run download "$RUN_ID" --name AmneziaCore-iphoneos --dir core-lib
+          ls -lh core-lib/ core-lib/headers/
 
       - name: Archive (unsigned)
         run: |
           xcodebuild -project client/swiftui/AmneziaVPN-SwiftUI.xcodeproj \
             -scheme AmneziaVPN-SwiftUI \
             -configuration Release \
+            -xcconfig core-lib/CoreLibLink.xcconfig \
             -destination 'generic/platform=iOS' \
             -archivePath build/AmneziaVPN.xcarchive \
             CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO \
