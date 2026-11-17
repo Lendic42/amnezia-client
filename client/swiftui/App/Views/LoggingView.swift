@@ -175,7 +175,7 @@ struct LogViewerView: View {
         .onAppear {
             refresh()
         }
-        .onChange(of: selectedStream) {
+        .onChange(of: selectedStream) { _ in
             refresh()
         }
         .sheet(isPresented: $showExporter) {

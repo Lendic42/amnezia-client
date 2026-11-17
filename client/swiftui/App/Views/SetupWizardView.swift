@@ -32,7 +32,7 @@ struct SetupWizardView: View {
                 case .qrReader:
                     QrReaderView(navigationPath: $navigationPath)
                 case .viewConfig(let imported):
-                    ViewConfigView(imported: imported, navigationPath: $navigationPath)
+                    ViewConfigView(navigationPath: $navigationPath, imported: imported)
                 }
             }
         }
