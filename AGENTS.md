@@ -2,6 +2,12 @@
 
 Operating guide for this repository. Read it before changing anything.
 
+## 0. Scope of the SwiftUI port (Ivan's rule, 17.11.2026 — above all else)
+
+- The app is taken as the original, as it is. Only the buttons, screens and other visuals are rewritten in SwiftUI.
+- The task is only to change the visuals to the native iOS language. Not to lighten the app, not to shrink it, not to re-release it, not to rewrite the logic, not to reimplement anything.
+- All logic stays in the original C++ core and is reached through the Obj-C++ bridge. Swift reimplementations of core logic (key decoders, importers, gateway clients, connection handling, config builders) are forbidden — this was already done once in Stage 1 (LocalCore) and had to be thrown away.
+
 ## Project Overview
 
 AmneziaVPN is a cross-platform VPN client built with C++ and Qt Quick (QML) for

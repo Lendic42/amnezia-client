@@ -334,3 +334,66 @@ endif()
 if(AMNEZIA_BUILD_TESTS)
     add_subdirectory(tests)
 endif()
+
+option(AMNEZIA_BUILD_CORE_LIB "Build the AmneziaCore static library for the SwiftUI app" OFF)
+
+if(AMNEZIA_BUILD_CORE_LIB AND IOS)
+    enable_language(Swift)
+
+    if(NOT CLIENT_SWIFT_MODULE_NAME STREQUAL "AmneziaCore")
+        message(FATAL_ERROR "AMNEZIA_BUILD_CORE_LIB requires -DCLIENT_SWIFT_MODULE_NAME=AmneziaCore")
+    endif()
+    if(NOT CLIENT_SWIFT_OBJC_HEADER_NAME STREQUAL "AmneziaCore-Swift.h")
+        message(FATAL_ERROR "AMNEZIA_BUILD_CORE_LIB requires -DCLIENT_SWIFT_OBJC_HEADER_NAME=AmneziaCore-Swift.h")
+    endif()
+
+    set(CORE_LIB_SOURCES ${SOURCES})
+    set(CORE_LIB_HEADERS ${HEADERS})
+    list(REMOVE_ITEM CORE_LIB_SOURCES
+        ${CMAKE_CURRENT_LIST_DIR}/main.cpp
+        ${CMAKE_CURRENT_LIST_DIR}/platforms/ios/QtAppDelegate.mm
+        ${CMAKE_CURRENT_LIST_DIR}/platforms/ios/AmneziaSceneDelegateHooks.mm
+    )
+
+    add_library(AmneziaCore STATIC
+        ${CORE_LIB_SOURCES}
+        ${CORE_LIB_HEADERS}
+        ${CMAKE_CURRENT_LIST_DIR}/swiftui/Bridge/AmneziaCoreBridge.h
+        ${CMAKE_CURRENT_LIST_DIR}/swiftui/Bridge/AmneziaCoreBridge.mm
+        ${CMAKE_CURRENT_LIST_DIR}/platforms/ios/LogController.swift
+        ${CMAKE_CURRENT_LIST_DIR}/platforms/ios/Log.swift
+        ${CMAKE_CURRENT_LIST_DIR}/platforms/ios/LogRecord.swift
+        ${CMAKE_CURRENT_LIST_DIR}/platforms/ios/ScreenProtection.swift
+        ${CMAKE_CURRENT_LIST_DIR}/platforms/ios/VPNCController.swift
+        ${CMAKE_CURRENT_LIST_DIR}/platforms/ios/StoreKit2Helper.swift
+        ${CLIENT_GROUP_IDENTIFIER_SWIFT_FILE}
+    )
+
+    target_include_directories(AmneziaCore PUBLIC
+        $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>
+    )
+
+    target_compile_definitions(AmneziaCore PRIVATE
+        CLIENT_KEYCHAIN_NAME_STR=\"${CLIENT_KEYCHAIN_NAME}\"
+        "MZ_$<UPPER_CASE:${MZ_PLATFORM_NAME}>"
+    )
+    if(CMAKE_BUILD_TYPE STREQUAL "Debug")
+        target_compile_definitions(AmneziaCore PRIVATE "MZ_DEBUG")
+    endif()
+
+    target_compile_options(AmneziaCore PRIVATE
+        -DGROUP_ID=\"${BUILD_IOS_GROUP_IDENTIFIER}\"
+        -DVPN_NE_BUNDLEID=\"${BUILD_IOS_APP_IDENTIFIER}.network-extension\"
+    )
+
+    target_link_libraries(AmneziaCore PUBLIC ${LIBS})
+
+    set_target_properties(AmneziaCore PROPERTIES
+        XCODE_ATTRIBUTE_ARCHS[sdk=iphoneos*] "arm64"
+        XCODE_ATTRIBUTE_SWIFT_VERSION "5.0"
+        XCODE_ATTRIBUTE_CLANG_ENABLE_MODULES "YES"
+        XCODE_ATTRIBUTE_SWIFT_OBJC_INTEROP_MODE "objcxx"
+        XCODE_ATTRIBUTE_SWIFT_OBJC_INTERFACE_HEADER_NAME "${CLIENT_SWIFT_OBJC_HEADER_NAME}"
+        XCODE_ATTRIBUTE_SWIFT_PRECOMPILE_BRIDGING_HEADER "NO"
+    )
+endif()
