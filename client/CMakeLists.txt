@@ -360,6 +360,8 @@ if(AMNEZIA_BUILD_CORE_LIB AND IOS)
         ${CORE_LIB_HEADERS}
         ${CMAKE_CURRENT_LIST_DIR}/swiftui/Bridge/AmneziaCoreBridge.h
         ${CMAKE_CURRENT_LIST_DIR}/swiftui/Bridge/AmneziaCoreBridge.mm
+        ${CMAKE_CURRENT_LIST_DIR}/swiftui/Bridge/AmneziaCoreBootstrap.h
+        ${CMAKE_CURRENT_LIST_DIR}/swiftui/Bridge/AmneziaCoreBootstrap.mm
         ${CMAKE_CURRENT_LIST_DIR}/platforms/ios/LogController.swift
         ${CMAKE_CURRENT_LIST_DIR}/platforms/ios/Log.swift
         ${CMAKE_CURRENT_LIST_DIR}/platforms/ios/LogRecord.swift

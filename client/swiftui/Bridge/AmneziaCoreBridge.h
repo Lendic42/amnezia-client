@@ -4,9 +4,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface AmneziaCoreBridge : NSObject
 
-- (instancetype)initWithConnectionController:(void *)connectionController
-                          serversController:(void *)serversController
-                           importController:(void *)importController NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithCoreController:(void *)coreController NS_DESIGNATED_INITIALIZER;
 
 - (instancetype)init NS_UNAVAILABLE;
 
@@ -17,6 +15,11 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)openConnection;
 - (void)closeConnection;
 - (NSInteger)getLastConnectionError;
+- (NSString *)errorMessageForCode:(NSInteger)errorCode;
+
+- (NSInteger)getServersCount;
+- (NSString *)serverIdAtIndex:(NSInteger)index;
+- (NSString *)serverJson:(NSString *)serverId;
 
 - (NSString *)defaultServerId;
 - (NSString *)defaultServerName;
@@ -31,6 +34,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (BOOL)isServerFromApi:(NSString *)serverId;
 - (BOOL)isServerHasWriteAccess:(NSString *)serverId;
 - (BOOL)serverHasOutdatedAwgContainer:(NSString *)serverId;
+- (BOOL)isServerSubscriptionExpired:(NSString *)serverId;
+- (BOOL)isServerSubscriptionExpiringSoon:(NSString *)serverId;
 - (void)setDefaultServer:(NSString *)serverId;
 - (void)setDefaultContainer:(NSString *)serverId containerIndex:(NSInteger)containerIndex;
 - (void)removeServer:(NSString *)serverId;
@@ -44,13 +49,29 @@ NS_ASSUME_NONNULL_BEGIN
 - (BOOL)isNativeWireGuardConfig;
 - (void)processNativeWireGuardConfig;
 - (void)importConfig;
+- (void)startDecodingQr;
 - (BOOL)parseQrCodeChunk:(NSString *)code;
 - (double)qrCodeScanProgressBarValue;
 - (NSString *)qrCodeScanProgressString;
 
+- (NSInteger)validateAndUpdateConfig:(NSString *)serverId;
+
+- (NSString *)connectionConfig:(NSString *)serverId containerIndex:(NSInteger)containerIndex clientName:(NSString *)clientName;
+- (NSString *)wireGuardConfig:(NSString *)serverId clientName:(NSString *)clientName;
+- (NSString *)awgConfig:(NSString *)serverId containerIndex:(NSInteger)containerIndex clientName:(NSString *)clientName;
+- (NSString *)openVpnConfig:(NSString *)serverId clientName:(NSString *)clientName;
+- (NSString *)xrayConfig:(NSString *)serverId clientName:(NSString *)clientName;
+- (NSString *)fullAccessConfig:(NSString *)serverId;
+- (NSString *)prepareVpnKeyExport:(NSString *)serverId;
+- (NSInteger)getLastExportError;
+
 - (void)setConnectionStateChangedHandler:(void (^)(void))handler;
 - (void)setConnectionErrorHandler:(void (^)(NSInteger errorCode))handler;
 - (void)setNoInstalledContainersHandler:(void (^)(void))handler;
+- (void)setImportFinishedHandler:(void (^)(void))handler;
+- (void)setImportErrorHandler:(void (^)(NSInteger errorCode, BOOL goToPageHome))handler;
+- (void)setQrDecodingFinishedHandler:(void (^)(void))handler;
+- (void)setExportErrorHandler:(void (^)(NSInteger errorCode))handler;
 
 @end
 

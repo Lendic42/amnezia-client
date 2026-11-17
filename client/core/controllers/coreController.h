@@ -105,6 +105,14 @@ public:
     void setQmlRoot();
     void checkForAppUpdates();
 
+    ConnectionUiController* connectionUiController() const { return m_connectionUiController; }
+    ServersUiController* serversUiController() const { return m_serversUiController; }
+    ImportUiController* importUiController() const { return m_importController; }
+    SubscriptionUiController* subscriptionUiController() const { return m_subscriptionUiController; }
+    ExportUiController* exportUiController() const { return m_exportUiController; }
+    SubscriptionController* subscriptionController() const { return m_subscriptionController; }
+    SecureServersRepository* serversRepository() const { return m_serversRepository; }
+
     void openConnectionByIndex(int serverIndex);
     void importConfigFromData(const QString &data);
     void updateTranslator(const QLocale &locale);
