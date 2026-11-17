@@ -35,6 +35,9 @@ jobs:
             || echo "using default Xcode"
           xcodebuild -version
 
+      - name: Download iOS platform
+        run: xcodebuild -downloadPlatform iOS || sudo xcodebuild -downloadPlatform iOS
+
       - name: Set up Go 1.26
         uses: actions/setup-go@v5
         with:
