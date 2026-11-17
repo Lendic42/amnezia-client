@@ -1,1 +1,2 @@
-#import "AmneziaCoreAdapter.h"
+#import "AmneziaCoreBridge.h"
+#import "AmneziaCoreBootstrap.h"
