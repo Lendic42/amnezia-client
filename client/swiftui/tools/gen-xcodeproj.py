@@ -444,7 +444,7 @@ def main():
         "App/Views/QrReaderView.swift",
         "App/Views/ShareView.swift",
     ])
-    app_group = group("App", "App", [
+    app_group = group("App", None, [
         uid("fileref:App/AmneziaVPNApp.swift"),
         uid("fileref:App/AppState.swift"),
         uid("fileref:App/BuildConfig.swift"),
@@ -454,12 +454,12 @@ def main():
         core_group,
         views_group,
     ])
-    ext_group = group("Extension", "Extension", [
+    ext_group = group("Extension", None, [
         uid("fileref:Extension/PacketTunnelProvider.swift"),
         uid("fileref:Extension/WGConfig.swift"),
         uid("fileref:Extension/Info.plist"),
     ])
-    bridge_group = group("Bridge", "Bridge", [
+    bridge_group = group("Bridge", None, [
         uid("fileref:Bridge/AmneziaCoreBridge.h"),
         uid("fileref:Bridge/AmneziaCoreBridge.mm"),
     ])
@@ -496,3 +496,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
