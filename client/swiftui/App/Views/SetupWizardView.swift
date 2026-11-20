@@ -213,7 +213,7 @@ struct ConfigSourceView: View {
 
     private func continueWithKey(_ key: String) {
         do {
-            let imported = try Importer.extractConfigFromData(key, fileName: "", nextServerName: appState.core.serverStore.nextAvailableServerName())
+            let imported = try Importer.extractConfigFromData(key, fileName: "", nextServerName: appState.core.nextAvailableServerName())
             navigationPath.append(WizardDestination.viewConfig(imported))
         } catch {
             appState.showSnackbar(error.localizedDescription)
@@ -229,7 +229,7 @@ struct ConfigSourceView: View {
             return
         }
         do {
-            let imported = try Importer.extractConfigFromData(text, fileName: url.lastPathComponent, nextServerName: appState.core.serverStore.nextAvailableServerName())
+            let imported = try Importer.extractConfigFromData(text, fileName: url.lastPathComponent, nextServerName: appState.core.nextAvailableServerName())
             navigationPath.append(WizardDestination.viewConfig(imported))
         } catch {
             appState.showSnackbar(error.localizedDescription)
@@ -284,7 +284,7 @@ struct TextKeyView: View {
             }
             AmneziaButton(title: "Continue") {
                 do {
-                    let imported = try Importer.extractConfigFromData(keyText, fileName: "", nextServerName: appState.core.serverStore.nextAvailableServerName())
+                    let imported = try Importer.extractConfigFromData(keyText, fileName: "", nextServerName: appState.core.nextAvailableServerName())
                     navigationPath.append(WizardDestination.viewConfig(imported))
                 } catch {
                     appState.showSnackbar(error.localizedDescription)

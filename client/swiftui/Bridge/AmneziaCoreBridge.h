@@ -30,6 +30,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (BOOL)defaultServerHasOutdatedAwgContainer;
 - (BOOL)isDefaultServerDefaultContainerHasSplitTunneling;
 - (NSString *)serverName:(NSString *)serverId;
+- (NSString *)nextAvailableServerName;
 - (NSString *)serverHostName:(NSString *)serverId;
 - (BOOL)isServerFromApi:(NSString *)serverId;
 - (BOOL)isServerHasWriteAccess:(NSString *)serverId;
@@ -63,6 +64,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSString *)xrayConfig:(NSString *)serverId clientName:(NSString *)clientName;
 - (NSString *)fullAccessConfig:(NSString *)serverId;
 - (NSString *)prepareVpnKeyExport:(NSString *)serverId;
+- (NSArray<NSString *> *)vpnKeyQrCodes;
+- (NSArray<NSString *> *)exportQrCodes;
 - (NSInteger)getLastExportError;
 
 - (void)setConnectionStateChangedHandler:(void (^)(void))handler;

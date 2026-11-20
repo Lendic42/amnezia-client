@@ -8,6 +8,8 @@ struct ShareView: View {
     @State private var selectedServerId: String?
     @State private var showServerPicker = false
     @State private var qrPage = 0
+    @State private var shareText: String?
+    @State private var qrStrings: [String]?
     @State private var exportData: Data?
     @State private var exportFileName = ""
     @State private var showExporter = false
@@ -35,6 +37,15 @@ struct ShareView: View {
         .background(AmneziaTheme.bgBase)
         .onAppear {
             selectedServerId = appState.defaultServerId
+            loadShareContent()
+        }
+        .onChange(of: selectedServerId) {
+            qrPage = 0
+            loadShareContent()
+        }
+        .onChange(of: selectedFormat) {
+            qrPage = 0
+            loadShareContent()
         }
         .sheet(isPresented: $showExporter) {
             if let exportData {
@@ -180,71 +191,59 @@ struct ShareView: View {
         }
     }
 
-    private var shareText: String? {
-        guard let server else { return nil }
+    private func loadShareContent() {
+        guard let server else {
+            shareText = nil
+            qrStrings = nil
+            return
+        }
         switch selectedFormat {
         case .amnezia:
-            return amneziaKey(for: server)
-        case .wireGuard, .awg:
-            return WGConfigBuilder.buildNativeConf(server: server, settings: appState.core.settings)
-        case .openVpn, .xray:
-            return nil
+            appState.core.exportVpnKey(serverId: server.id) { result in
+                switch result {
+                case .success(let share):
+                    shareText = share.text
+                    qrStrings = share.qrCodes
+                case .failure:
+                    shareText = nil
+                    qrStrings = nil
+                }
+            }
+        case .wireGuard, .awg, .openVpn, .xray:
+            let format: NativeExportFormat
+            switch selectedFormat {
+            case .wireGuard: format = .wireGuard
+            case .awg: format = .awg
+            case .openVpn: format = .openVpn
+            case .xray: format = .xray
+            case .amnezia: return
+            }
+            appState.core.exportNativeConfig(serverId: server.id, containerIndex: server.defaultContainerIndex, format: format, clientName: server.name) { result in
+                switch result {
+                case .success(let share):
+                    shareText = share.text
+                    qrStrings = share.qrCodes
+                case .failure:
+                    shareText = nil
+                    qrStrings = nil
+                }
+            }
         }
-    }
-
-    private var qrStrings: [String]? {
-        guard let server else { return nil }
-        switch selectedFormat {
-        case .amnezia:
-            guard let json = shareJSON(for: server) else { return nil }
-            return VPNKeyEncoder.qrChunks(json: json)
-        case .wireGuard, .awg:
-            guard let conf = WGConfigBuilder.buildNativeConf(server: server, settings: appState.core.settings) else { return nil }
-            return [conf]
-        case .openVpn, .xray:
-            return nil
-        }
-    }
-
-    private func shareJSON(for server: VPNServer) -> String? {
-        guard var json = (try? JSONSerialization.jsonObject(with: Data(server.configJSON.utf8)) as? [String: Any]) ?? nil else {
-            return nil
-        }
-        let (dns1, dns2) = WGConfigBuilder.effectiveDnsPair(server: server, settings: appState.core.settings)
-        json["dns1"] = dns1
-        json["dns2"] = dns2
-        json.removeValue(forKey: "userName")
-        json.removeValue(forKey: "password")
-        guard let data = try? JSONSerialization.data(withJSONObject: json, options: [.sortedKeys]),
-              let text = String(data: data, encoding: .utf8) else {
-            return nil
-        }
-        return text
-    }
-
-    private func amneziaKey(for server: VPNServer) -> String? {
-        guard let json = shareJSON(for: server) else { return nil }
-        return try? VPNKeyEncoder.encode(json: json)
     }
 
     private func saveConfig() {
-        guard let server else { return }
+        guard let server, let shareText,
+              let data = shareText.data(using: .utf8) else { return }
         switch selectedFormat {
         case .amnezia:
-            guard let key = amneziaKey(for: server),
-                  let data = key.data(using: .utf8) else { return }
             exportData = data
             exportFileName = "Connection to \(server.name).vpn"
             showExporter = true
         case .wireGuard:
-            guard let conf = WGConfigBuilder.buildNativeConf(server: server, settings: appState.core.settings),
-                  let data = conf.data(using: .utf8) else { return }
             exportData = data
             exportFileName = "WireGuard config to \(server.name).conf"
             showExporter = true
         case .awg:
-            guard let conf = WGConfigBuilder.buildNativeConf(server: server, settings: appState.core.settings),
-                  let data = conf.data(using: .utf8) else { return }
             exportData = data
             exportFileName = "AmneziaWG config to \(server.name).conf"
             showExporter = true

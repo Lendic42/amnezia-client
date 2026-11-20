@@ -5,7 +5,7 @@ struct AmneziaVPNApp: App {
     @StateObject private var appState: AppState
 
     init() {
-        let core = LocalCore()
+        let core = AmneziaCoreAdapter()
         if core.settings.isLoggingEnabled {
             Logger.shared.log("AmneziaVPN started")
         }

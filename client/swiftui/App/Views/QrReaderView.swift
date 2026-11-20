@@ -66,7 +66,7 @@ struct QrReaderView: View {
 
     private func finish(with data: Data) {
         do {
-            let imported = try Importer.extractConfigFromQrData(data, fileName: "", nextServerName: appState.core.serverStore.nextAvailableServerName())
+            let imported = try Importer.extractConfigFromQrData(data, fileName: "", nextServerName: appState.core.nextAvailableServerName())
             navigationPath.append(WizardDestination.viewConfig(imported))
         } catch {
             appState.showSnackbar(error.localizedDescription)
@@ -78,7 +78,7 @@ struct QrReaderView: View {
 
     private func finish(with text: String) {
         do {
-            let imported = try Importer.extractConfigFromData(text, fileName: "", nextServerName: appState.core.serverStore.nextAvailableServerName())
+            let imported = try Importer.extractConfigFromData(text, fileName: "", nextServerName: appState.core.nextAvailableServerName())
             navigationPath.append(WizardDestination.viewConfig(imported))
         } catch {
             appState.showSnackbar(error.localizedDescription)

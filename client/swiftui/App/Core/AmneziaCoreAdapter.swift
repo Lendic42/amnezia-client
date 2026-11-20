@@ -36,6 +36,11 @@ struct ImportPreview: Hashable {
     var maliciousWarningText: String
 }
 
+struct ExportedShare {
+    var text: String
+    var qrCodes: [String]
+}
+
 enum NativeExportFormat {
     case wireGuard
     case awg
@@ -85,6 +90,7 @@ protocol AmneziaCore: AnyObject {
     func removeServer(id: String)
     func renameServer(id: String, name: String)
     func refreshServers()
+    func nextAvailableServerName() -> String
     func observeConnectionState(_ handler: @escaping (ConnectionState) -> Void)
     func extractConfig(data: String) -> ImportPreview?
     func importExtractedConfig(processObfuscation: Bool, completion: @escaping (Result<String, CoreError>) -> Void)
@@ -93,10 +99,10 @@ protocol AmneziaCore: AnyObject {
     var qrProgressValue: Double { get }
     var qrProgressString: String { get }
     func validateServerConfig(id: String, completion: @escaping (String?) -> Void)
-    func exportConnectionKey(serverId: String, containerIndex: Int, clientName: String, completion: @escaping (Result<String, CoreError>) -> Void)
-    func exportNativeConfig(serverId: String, containerIndex: Int, format: NativeExportFormat, clientName: String, completion: @escaping (Result<String, CoreError>) -> Void)
-    func exportFullAccessKey(serverId: String, completion: @escaping (Result<String, CoreError>) -> Void)
-    func exportVpnKey(serverId: String, completion: @escaping (Result<String, CoreError>) -> Void)
+    func exportConnectionKey(serverId: String, containerIndex: Int, clientName: String, completion: @escaping (Result<ExportedShare, CoreError>) -> Void)
+    func exportNativeConfig(serverId: String, containerIndex: Int, format: NativeExportFormat, clientName: String, completion: @escaping (Result<ExportedShare, CoreError>) -> Void)
+    func exportFullAccessKey(serverId: String, completion: @escaping (Result<ExportedShare, CoreError>) -> Void)
+    func exportVpnKey(serverId: String, completion: @escaping (Result<ExportedShare, CoreError>) -> Void)
 }
 
 final class AmneziaCoreAdapter: AmneziaCore {
@@ -265,6 +271,10 @@ final class AmneziaCoreAdapter: AmneziaCore {
         cachedServers = servers
     }
 
+    func nextAvailableServerName() -> String {
+        bridge?.nextAvailableServerName() ?? ""
+    }
+
     func extractConfig(data: String) -> ImportPreview? {
         guard let bridge else { return nil }
         lastImportErrorCode = 0
@@ -322,40 +332,43 @@ final class AmneziaCoreAdapter: AmneziaCore {
         }
     }
 
-    func exportConnectionKey(serverId: String, containerIndex: Int, clientName: String, completion: @escaping (Result<String, CoreError>) -> Void) {
+    func exportConnectionKey(serverId: String, containerIndex: Int, clientName: String, completion: @escaping (Result<ExportedShare, CoreError>) -> Void) {
         runExport(completion: completion) { bridge in
-            bridge.connectionConfig(serverId, containerIndex: containerIndex, clientName: clientName)
+            ExportedShare(text: bridge.connectionConfig(serverId, containerIndex: containerIndex, clientName: clientName),
+                          qrCodes: bridge.exportQrCodes())
         }
     }
 
-    func exportNativeConfig(serverId: String, containerIndex: Int, format: NativeExportFormat, clientName: String, completion: @escaping (Result<String, CoreError>) -> Void) {
+    func exportNativeConfig(serverId: String, containerIndex: Int, format: NativeExportFormat, clientName: String, completion: @escaping (Result<ExportedShare, CoreError>) -> Void) {
         runExport(completion: completion) { bridge in
+            let text: String
             switch format {
             case .wireGuard:
-                return bridge.wireGuardConfig(serverId, clientName: clientName)
+                text = bridge.wireGuardConfig(serverId, clientName: clientName)
             case .awg:
-                return bridge.awgConfig(serverId, containerIndex: containerIndex, clientName: clientName)
+                text = bridge.awgConfig(serverId, containerIndex: containerIndex, clientName: clientName)
             case .openVpn:
-                return bridge.openVpnConfig(serverId, clientName: clientName)
+                text = bridge.openVpnConfig(serverId, clientName: clientName)
             case .xray:
-                return bridge.xrayConfig(serverId, clientName: clientName)
+                text = bridge.xrayConfig(serverId, clientName: clientName)
             }
+            return ExportedShare(text: text, qrCodes: bridge.exportQrCodes())
         }
     }
 
-    func exportFullAccessKey(serverId: String, completion: @escaping (Result<String, CoreError>) -> Void) {
+    func exportFullAccessKey(serverId: String, completion: @escaping (Result<ExportedShare, CoreError>) -> Void) {
         runExport(completion: completion) { bridge in
-            bridge.fullAccessConfig(serverId)
+            ExportedShare(text: bridge.fullAccessConfig(serverId), qrCodes: bridge.exportQrCodes())
         }
     }
 
-    func exportVpnKey(serverId: String, completion: @escaping (Result<String, CoreError>) -> Void) {
+    func exportVpnKey(serverId: String, completion: @escaping (Result<ExportedShare, CoreError>) -> Void) {
         runExport(completion: completion) { bridge in
-            bridge.prepareVpnKeyExport(serverId)
+            ExportedShare(text: bridge.prepareVpnKeyExport(serverId), qrCodes: bridge.vpnKeyQrCodes())
         }
     }
 
-    private func runExport(completion: @escaping (Result<String, CoreError>) -> Void, produce: @escaping (AmneziaCoreBridge) -> String) {
+    private func runExport(completion: @escaping (Result<ExportedShare, CoreError>) -> Void, produce: @escaping (AmneziaCoreBridge) -> ExportedShare) {
         guard let bridge else {
             completion(.failure(CoreError(message: "Core unavailable")))
             return
@@ -364,7 +377,7 @@ final class AmneziaCoreAdapter: AmneziaCore {
             let value = produce(bridge)
             let error = bridge.getLastExportError()
             DispatchQueue.main.async {
-                if value.isEmpty {
+                if value.text.isEmpty {
                     completion(.failure(CoreError(message: error == 0 ? "Export failed" : bridge.errorMessage(forCode: error))))
                 } else {
                     completion(.success(value))

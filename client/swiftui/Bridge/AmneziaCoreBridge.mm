@@ -25,6 +25,15 @@ static QString QStringFromNSString(NSString *value)
     return QString::fromUtf8([value UTF8String]);
 }
 
+static NSArray<NSString *> *NSArrayFromQStringList(const QList<QString> &values)
+{
+    NSMutableArray<NSString *> *result = [NSMutableArray arrayWithCapacity:values.size()];
+    for (const QString &value : values) {
+        [result addObject:NSStringFromQString(value)];
+    }
+    return result;
+}
+
 @interface AmneziaCoreBridge ()
 {
     ConnectionUiController *_connectionController;
@@ -210,6 +219,11 @@ static QString QStringFromNSString(NSString *value)
     return NSStringFromQString(_serversController->serverName(QStringFromNSString(serverId)));
 }
 
+- (NSString *)nextAvailableServerName
+{
+    return NSStringFromQString(_serversRepository->nextAvailableServerName());
+}
+
 - (NSString *)serverHostName:(NSString *)serverId
 {
     return NSStringFromQString(_serversController->serverHostName(QStringFromNSString(serverId)));
@@ -374,6 +388,16 @@ static QString QStringFromNSString(NSString *value)
     _lastExportError = 0;
     _subscriptionController->prepareVpnKeyExport(QStringFromNSString(serverId));
     return NSStringFromQString(_subscriptionController->property("vpnKey").toString());
+}
+
+- (NSArray<NSString *> *)vpnKeyQrCodes
+{
+    return NSArrayFromQStringList(_subscriptionController->getQrCodes());
+}
+
+- (NSArray<NSString *> *)exportQrCodes
+{
+    return NSArrayFromQStringList(_exportController->getQrCodes());
 }
 
 - (NSInteger)getLastExportError
