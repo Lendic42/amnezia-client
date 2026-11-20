@@ -94,6 +94,7 @@ protocol AmneziaCore: AnyObject {
     func observeConnectionState(_ handler: @escaping (ConnectionState) -> Void)
     func extractConfig(data: String) -> ImportPreview?
     func importExtractedConfig(processObfuscation: Bool, completion: @escaping (Result<String, CoreError>) -> Void)
+    func importConfig(_ imported: ImportedConfig)
     func startQrDecoding()
     func parseQrCodeChunk(_ code: String) -> Bool
     var qrProgressValue: Double { get }
@@ -296,6 +297,11 @@ final class AmneziaCoreAdapter: AmneziaCore {
         pendingImportCompletion = completion
         pendingImportBeforeIds = Set(cachedServers.map { $0.id })
         bridge.importConfig()
+    }
+
+    func importConfig(_ imported: ImportedConfig) {
+        bridge?.addServer(withId: imported.server.id, json: imported.server.configJSON)
+        refreshServers()
     }
 
     func startQrDecoding() {

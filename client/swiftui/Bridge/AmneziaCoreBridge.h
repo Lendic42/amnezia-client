@@ -31,6 +31,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (BOOL)isDefaultServerDefaultContainerHasSplitTunneling;
 - (NSString *)serverName:(NSString *)serverId;
 - (NSString *)nextAvailableServerName;
+- (void)addServerWithId:(NSString *)serverId json:(NSString *)serverJson;
 - (NSString *)serverHostName:(NSString *)serverId;
 - (BOOL)isServerFromApi:(NSString *)serverId;
 - (BOOL)isServerHasWriteAccess:(NSString *)serverId;

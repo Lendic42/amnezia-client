@@ -5,6 +5,7 @@
 #include "core/repositories/secureServersRepository.h"
 #include "core/utils/errorCodes.h"
 #include "core/utils/errorStrings.h"
+#include "core/utils/serverConfigUtils.h"
 #include "ui/controllers/api/subscriptionUiController.h"
 #include "ui/controllers/connectionUiController.h"
 #include "ui/controllers/importUiController.h"
@@ -222,6 +223,15 @@ static NSArray<NSString *> *NSArrayFromQStringList(const QList<QString> &values)
 - (NSString *)nextAvailableServerName
 {
     return NSStringFromQString(_serversRepository->nextAvailableServerName());
+}
+
+- (void)addServerWithId:(NSString *)serverId json:(NSString *)serverJson
+{
+    const QJsonObject json = QJsonDocument::fromJson(QStringFromNSString(serverJson).toUtf8()).object();
+    if (json.isEmpty()) {
+        return;
+    }
+    _serversRepository->addServer(QStringFromNSString(serverId), json, serverConfigUtils::configTypeFromJson(json));
 }
 
 - (NSString *)serverHostName:(NSString *)serverId
