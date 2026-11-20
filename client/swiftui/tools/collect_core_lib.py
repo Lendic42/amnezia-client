@@ -184,7 +184,7 @@ def find_builtin_archive(build_dir, name):
 def qt_third_party_archives(qt_ios_dir, qt_lib_dir):
     import glob
     found = []
-    for pattern in ("libharfbuzz*.a", "libpcre2*.a", "libpng*.a"):
+    for pattern in ("libharfbuzz*.a", "libQt6BundledHarfbuzz*.a", "libpcre2*.a", "libQt6BundledPcre2*.a", "libpng*.a", "libQt6BundledPng*.a"):
         found.extend(sorted(glob.glob(os.path.join(qt_lib_dir, pattern))))
     if found:
         return found
@@ -196,7 +196,7 @@ def qt_third_party_archives(qt_ios_dir, qt_lib_dir):
             lower = name.lower()
             if not lower.endswith(".a"):
                 continue
-            if "harfbuzz" in lower or "pcre2" in lower or lower.startswith("libpng"):
+            if "harfbuzz" in lower or "pcre2" in lower or "png" in lower:
                 found.append(os.path.join(dirpath, name))
     return sorted(set(found))
 
