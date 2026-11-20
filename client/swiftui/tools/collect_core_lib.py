@@ -111,8 +111,13 @@ def resolve_qt_closure(qt_lib_dir):
             elif token.startswith("-l"):
                 link_flags.add(token)
                 index += 1
-            elif token.endswith(".a") and os.path.isabs(token):
-                archives[os.path.basename(token)] = token
+            elif token.endswith(".a"):
+                if os.path.isabs(token):
+                    archives[os.path.basename(token)] = token
+                else:
+                    candidate = os.path.join(qt_lib_dir, token)
+                    if os.path.isfile(candidate):
+                        archives[os.path.basename(token)] = candidate
                 index += 1
             else:
                 index += 1
@@ -176,12 +181,24 @@ def find_builtin_archive(build_dir, name):
     return matches[0]
 
 
-def qt_third_party_archives(qt_lib_dir):
+def qt_third_party_archives(qt_ios_dir, qt_lib_dir):
     import glob
     found = []
     for pattern in ("libharfbuzz*.a", "libpcre2*.a", "libpng*.a"):
         found.extend(sorted(glob.glob(os.path.join(qt_lib_dir, pattern))))
-    return found
+    if found:
+        return found
+    for dirpath, dirnames, filenames in os.walk(qt_ios_dir):
+        if "simulator" in dirpath.lower():
+            dirnames[:] = []
+            continue
+        for name in filenames:
+            lower = name.lower()
+            if not lower.endswith(".a"):
+                continue
+            if "harfbuzz" in lower or "pcre2" in lower or lower.startswith("libpng"):
+                found.append(os.path.join(dirpath, name))
+    return sorted(set(found))
 
 
 def main():
@@ -211,7 +228,7 @@ def main():
 
     builtin_archives = [find_builtin_archive(build_dir, name) for name in BUILTIN_ARCHIVES]
 
-    third_party_archives = qt_third_party_archives(qt_lib_dir)
+    third_party_archives = qt_third_party_archives(qt_ios_dir, qt_lib_dir)
 
     all_archives = [core_archive, platform_plugin]
     all_archives.extend(sorted(qt_archives.values()))
@@ -231,6 +248,7 @@ def main():
     for flag in sorted(link_flags):
         parts.append(flag)
     lines = ["OTHER_LDFLAGS = " + " ".join(parts)]
+    lines.append(f"LIBRARY_SEARCH_PATHS = $(inherited) {qt_lib_dir}")
     xcconfig = os.path.join(out_dir, "CoreLibLink.xcconfig")
     with open(xcconfig, "w", encoding="utf-8") as handle:
         handle.write("\n".join(lines) + "\n")
