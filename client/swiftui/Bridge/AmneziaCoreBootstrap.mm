@@ -1,7 +1,6 @@
 #import "AmneziaCoreBootstrap.h"
 #import "AmneziaCoreBridge.h"
 
-#include "amneziaApplication.h"
 #include "core/controllers/coreController.h"
 #include "core/utils/migrations.h"
 #include "secureQSettings.h"
@@ -13,9 +12,6 @@
 
 #include <QCoreApplication>
 #include <QThread>
-#include <QtPlugin>
-
-Q_IMPORT_PLUGIN(QIOSIntegrationPlugin)
 
 static void anchorOpenSSL()
 {
@@ -38,7 +34,7 @@ static void anchorOpenSSL()
 {
     static int argc = 1;
     static char *argv[] = { (char *)"AmneziaVPN", nullptr };
-    static AmneziaApplication *application = nil;
+    static QCoreApplication *application = nil;
     static SecureQSettings *settings = nil;
     static QThread *vpnConnectionThread = nil;
     static QSharedPointer<VpnConnection> vpnConnection;
@@ -47,7 +43,7 @@ static void anchorOpenSSL()
     Migrations migrationsManager;
     migrationsManager.doMigrations();
 
-    application = new AmneziaApplication(argc, argv);
+    application = new QCoreApplication(argc, argv);
     application->setApplicationName(APPLICATION_NAME);
     application->setOrganizationName(ORGANIZATION_NAME);
     application->setApplicationDisplayName(APPLICATION_NAME);
