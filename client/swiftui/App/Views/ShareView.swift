@@ -39,11 +39,11 @@ struct ShareView: View {
             selectedServerId = appState.defaultServerId
             loadShareContent()
         }
-        .onChange(of: selectedServerId) {
+        .onChange(of: selectedServerId) { _ in
             qrPage = 0
             loadShareContent()
         }
-        .onChange(of: selectedFormat) {
+        .onChange(of: selectedFormat) { _ in
             qrPage = 0
             loadShareContent()
         }
