@@ -186,10 +186,7 @@ def qt_third_party_archives(qt_ios_dir, qt_lib_dir):
     found = []
     for pattern in ("libharfbuzz*.a", "libQt6BundledHarfbuzz*.a", "libpcre2*.a", "libQt6BundledPcre2*.a", "libpng*.a", "libQt6BundledPng*.a"):
         found.extend(sorted(glob.glob(os.path.join(qt_lib_dir, pattern))))
-    if found:
-        print(f"qt third-party archives from lib/: {len(found)}")
-        return found
-    print("qt third-party archives: not in lib/, searching whole Qt tree")
+    print(f"qt third-party archives from lib/: {len(found)}")
     for dirpath, dirnames, filenames in os.walk(qt_ios_dir):
         if "simulator" in dirpath.lower():
             dirnames[:] = []
