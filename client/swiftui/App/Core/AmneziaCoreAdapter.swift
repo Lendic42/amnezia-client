@@ -388,7 +388,7 @@ final class AmneziaCoreAdapter: AmneziaCore {
                 case .disconnecting:
                     self.connectionState = .disconnecting
                 case .disconnected, .invalid:
-                    self.connectionState = (self.bridge?.isConnectionInProgress == true) ? .preparing : .disconnected
+                    self.connectionState = (self.bridge?.isConnectionInProgress() == true) ? .preparing : .disconnected
                 @unknown default:
                     break
                 }
