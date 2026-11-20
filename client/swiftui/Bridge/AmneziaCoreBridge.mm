@@ -402,7 +402,7 @@ static NSArray<NSString *> *NSArrayFromQStringList(const QList<QString> &values)
 
 - (NSArray<NSString *> *)vpnKeyQrCodes
 {
-    return NSArrayFromQStringList(_subscriptionController->getQrCodes());
+    return NSArrayFromQStringList(_subscriptionController->property("qrCodes").toStringList());
 }
 
 - (NSArray<NSString *> *)exportQrCodes

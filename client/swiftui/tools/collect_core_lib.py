@@ -26,6 +26,7 @@ IOS_FRAMEWORKS = [
     "StoreKit",
     "UserNotifications",
     "NetworkExtension",
+    "Photos",
 ]
 
 CONAN_ARCHIVES = {
@@ -175,6 +176,14 @@ def find_builtin_archive(build_dir, name):
     return matches[0]
 
 
+def qt_third_party_archives(qt_lib_dir):
+    import glob
+    found = []
+    for pattern in ("libharfbuzz*.a", "libpcre2*.a", "libpng*.a"):
+        found.extend(sorted(glob.glob(os.path.join(qt_lib_dir, pattern))))
+    return found
+
+
 def main():
     build_dir = sys.argv[1]
     qt_ios_dir = sys.argv[2]
@@ -202,10 +211,13 @@ def main():
 
     builtin_archives = [find_builtin_archive(build_dir, name) for name in BUILTIN_ARCHIVES]
 
+    third_party_archives = qt_third_party_archives(qt_lib_dir)
+
     all_archives = [core_archive, platform_plugin]
     all_archives.extend(sorted(qt_archives.values()))
     all_archives.extend(sorted(conan_archives))
     all_archives.extend(sorted(builtin_archives))
+    all_archives.extend(sorted(third_party_archives))
     all_archives = sorted(set(all_archives))
 
     os.makedirs(out_dir, exist_ok=True)
