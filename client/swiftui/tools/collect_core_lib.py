@@ -238,6 +238,7 @@ def main():
     print(f"merged {len(all_archives)} archives into {merged}")
     for archive in all_archives:
         print(f"  {archive}")
+    print(f"qt third-party archives: {', '.join(sorted(third_party_archives)) or '(none found)'}")
     print(f"frameworks: {', '.join(sorted(frameworks))}")
     print(f"link flags: {', '.join(sorted(link_flags)) or '(none)'}")
     print(f"wrote {xcconfig}")
