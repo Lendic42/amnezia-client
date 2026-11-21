@@ -46,7 +46,6 @@ static void anchorOpenSSL()
     application = new QCoreApplication(argc, argv);
     application->setApplicationName(APPLICATION_NAME);
     application->setOrganizationName(ORGANIZATION_NAME);
-    application->setApplicationDisplayName(APPLICATION_NAME);
 
     anchorOpenSSL();
     ssh_init();
